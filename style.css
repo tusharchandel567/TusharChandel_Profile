@@ -367,3 +367,91 @@ nav a{
     padding:6px 12px;
     border-radius:5px;
 }
+
+/* ============================= */
+/* Tablet */
+@media (max-width: 1024px) {
+
+.main-container{
+    grid-template-columns: 280px 1fr;
+    gap:20px;
+    padding:20px;
+}
+
+.sidebar{
+    padding:25px;
+}
+
+.main-content{
+    padding:25px;
+}
+
+.project-container{
+    grid-template-columns:1fr;
+}
+
+.language-item{
+    width:100%;
+}
+
+}
+
+
+/* ============================= */
+/* Mobile */
+@media (max-width: 768px) {
+
+.main-container{
+    grid-template-columns:1fr;
+}
+
+.sidebar{
+    height:auto;
+}
+
+nav{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.grid-container{
+    grid-template-columns: repeat(2,1fr);
+}
+
+.project-container{
+    grid-template-columns:1fr;
+}
+
+.language-container{
+    flex-direction:column;
+}
+
+.language-item{
+    width:100%;
+}
+
+}
+
+
+/* ============================= */
+/* Small Mobile */
+@media (max-width: 480px){
+
+.grid-container{
+    grid-template-columns:1fr;
+}
+
+.heading{
+    font-size:1.5rem;
+}
+
+.profile img{
+    width:90px;
+    height:90px;
+}
+
+.main-content{
+    padding:20px;
+}
+
+}
