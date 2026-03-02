@@ -959,19 +959,32 @@
       </div>
     </section>
 
-    <!-- ════════════════════════════════
+   <!-- ════════════════════════════════
          RESUME
-    ════════════════════════════════ -->
-    <section id="resume">
-      <h2 class="heading">Resume</h2>
-      <div class="line"></div>
+════════════════════════════════ -->
+<section id="resume">
+  <h2 class="heading">Resume</h2>
+  <div class="line"></div>
 
-      <div class="resume-actions">
-        <button class="res-btn primary" onclick="window.print()">⬇ Download PDF</button>
-        <button class="res-btn secondary" onclick="document.getElementById('resume-card').scrollIntoView({behavior:'smooth'})">👁 View Full Resume</button>
-      </div>
+  <div class="resume-actions">
 
-      <div class="resume-preview" id="resume-card">
+    <!-- Download Resume -->
+    <a href="https://docs.google.com/document/d/199O5Ie7yIBBnonreruTadmiQfKNFbodWysaTc6epDdI/export?format=pdf"
+       class="res-btn primary"
+       target="_blank">
+       ⬇ Download Resume
+    </a>
+
+    <!-- View Resume -->
+    <a href="https://docs.google.com/document/d/199O5Ie7yIBBnonreruTadmiQfKNFbodWysaTc6epDdI/preview"
+       class="res-btn secondary"
+       target="_blank">
+       👁 View Resume
+    </a>
+
+  </div>
+
+  <div class="resume-preview" id="resume-card">
         <!-- Resume Header -->
         <div class="resume-header">
           <div>
