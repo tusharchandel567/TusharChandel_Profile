@@ -359,6 +359,7 @@ footer .ft-r a:hover{color:var(--gold);}
     <li><a href="#about"><span class="t-en">About</span><span class="t-de">Über Mich</span></a></li>
     <li><a href="#skills"><span class="t-en">Skills</span><span class="t-de">Fähigkeiten</span></a></li>
     <li><a href="#experience"><span class="t-en">Experience</span><span class="t-de">Erfahrung</span></a></li>
+    <li><a href="#frontend-roadmap"><span class="t-en">Roadmap</span><span class="t-de">Lernpfad</span></a></li>
     <li><a href="#projects"><span class="t-en">Projects</span><span class="t-de">Projekte</span></a></li>
     <li><a href="#digital"><span class="t-en">Content</span><span class="t-de">Inhalt</span></a></li>
     <li><a href="#resume"><span class="t-en">Resume</span><span class="t-de">Lebenslauf</span></a></li>
@@ -539,6 +540,458 @@ footer .ft-r a:hover{color:var(--gold);}
     </div>
   </div>
 </div>
+
+<!-- FRONTEND ROADMAP -->
+<style>
+/* ── FRONTEND ROADMAP ── */
+.roadmap-wrap{padding:96px 0;background:var(--bg);border-top:1px solid var(--border);}
+.roadmap-inner{max-width:1100px;margin:0 auto;padding:0 40px;}
+.roadmap-chapters{display:flex;flex-direction:column;gap:28px;margin-top:40px;}
+
+/* Chapter card */
+.ch{background:var(--card);border:1px solid var(--border2);border-radius:20px;overflow:hidden;transition:border-color .3s;}
+.ch:hover{border-color:rgba(255,214,10,.22);}
+.ch-header{display:flex;align-items:center;gap:16px;padding:22px 28px;cursor:pointer;user-select:none;}
+.ch-letter{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;flex-shrink:0;}
+.ch-letter.web   {background:rgba(96,165,250,.12);color:var(--blue);border:1px solid rgba(96,165,250,.2);}
+.ch-letter.setup {background:rgba(255,214,10,.1);color:var(--gold);border:1px solid rgba(255,214,10,.2);}
+.ch-letter.html  {background:rgba(251,146,60,.12);color:#fb923c;border:1px solid rgba(251,146,60,.2);}
+.ch-letter.css   {background:rgba(59,130,246,.12);color:#60a5fa;border:1px solid rgba(59,130,246,.2);}
+.ch-letter.js    {background:rgba(250,204,21,.1);color:#facc15;border:1px solid rgba(250,204,21,.2);}
+.ch-letter.vc    {background:rgba(167,139,250,.1);color:var(--purple);border:1px solid rgba(167,139,250,.2);}
+.ch-letter.fw    {background:rgba(34,197,94,.1);color:var(--green);border:1px solid rgba(34,197,94,.2);}
+.ch-letter.ts    {background:rgba(96,165,250,.12);color:#38bdf8;border:1px solid rgba(96,165,250,.2);}
+.ch-meta{flex:1;}
+.ch-meta h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:#fff;margin-bottom:2px;}
+.ch-meta p{font-size:.74rem;color:var(--muted);}
+.ch-chips{display:flex;flex-wrap:wrap;gap:5px;margin-left:auto;margin-right:12px;}
+.ch-chip{font-size:.58rem;font-weight:700;padding:2px 8px;border-radius:5px;background:var(--card2);border:1px solid var(--border2);color:var(--muted);letter-spacing:.04em;}
+.ch-arrow{font-size:.8rem;color:var(--muted);transition:transform .3s;flex-shrink:0;}
+.ch.open .ch-arrow{transform:rotate(180deg);}
+.ch-body{display:none;border-top:1px solid var(--border);padding:28px;}
+.ch.open .ch-body{display:block;}
+
+/* Banner image strip inside each chapter */
+.ch-banner{border-radius:12px;overflow:hidden;margin-bottom:24px;height:130px;display:flex;align-items:center;justify-content:center;position:relative;}
+.ch-banner img{width:100%;height:100%;object-fit:cover;opacity:.55;}
+.ch-banner-overlay{position:absolute;inset:0;display:flex;align-items:center;padding:0 24px;background:linear-gradient(90deg,rgba(8,8,8,.9) 0%,rgba(8,8,8,.4) 60%,transparent);}
+.ch-banner-overlay h4{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;color:#fff;letter-spacing:-.02em;max-width:320px;line-height:1.2;}
+
+/* Subsections */
+.ch-sections{display:flex;flex-direction:column;gap:22px;}
+.ch-sec-title{font-size:.65rem;font-weight:800;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+.ch-sec-title::after{content:'';flex:1;height:1px;background:var(--border2);}
+
+/* Topic grid */
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:9px;}
+.topic-card{background:var(--card2);border:1px solid var(--border);border-radius:11px;padding:13px 14px;transition:all .22s;display:flex;gap:10px;align-items:flex-start;}
+.topic-card:hover{border-color:rgba(255,214,10,.28);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.5);}
+.topic-ico{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;}
+.topic-ico.blue{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.18);}
+.topic-ico.gold{background:rgba(255,214,10,.08);border:1px solid rgba(255,214,10,.18);}
+.topic-ico.green{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.18);}
+.topic-ico.orange{background:rgba(251,146,60,.08);border:1px solid rgba(251,146,60,.18);}
+.topic-ico.purple{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.18);}
+.topic-ico.cyan{background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.18);}
+.topic-body h5{font-size:.78rem;font-weight:700;color:#e8e8e8;margin-bottom:2px;line-height:1.2;}
+.topic-body p{font-size:.65rem;color:var(--muted);line-height:1.45;}
+
+/* Bonus cards */
+.bonus-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:7px;margin-top:4px;}
+.bonus-item{background:rgba(255,214,10,.04);border:1px solid rgba(255,214,10,.12);border-radius:9px;padding:8px 11px;font-size:.72rem;color:var(--gold);font-weight:600;display:flex;align-items:center;gap:6px;}
+.bonus-item::before{content:'★';font-size:.6rem;opacity:.7;}
+
+/* Tool cards (workspace) */
+.tool-group{margin-bottom:18px;}
+.tool-group-title{font-size:.62rem;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;}
+.tool-row{display:flex;flex-wrap:wrap;gap:8px;}
+.tool-badge{display:flex;align-items:center;gap:7px;background:var(--card2);border:1px solid var(--border);border-radius:9px;padding:8px 13px;font-size:.74rem;font-weight:600;color:#d0d0d0;transition:all .2s;}
+.tool-badge:hover{border-color:rgba(255,214,10,.3);color:var(--gold);}
+.tool-badge img{width:20px;height:20px;object-fit:contain;border-radius:4px;}
+.tool-badge span.ti{font-size:1rem;}
+
+/* Progress legend */
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:.68rem;color:var(--muted);}
+.leg-dot{width:8px;height:8px;border-radius:50%;}
+
+@media(max-width:760px){
+  .topic-grid{grid-template-columns:1fr 1fr;}
+  .roadmap-inner{padding:0 20px;}
+  .ch-header{padding:16px 18px;}
+  .ch-body{padding:18px;}
+}
+</style>
+
+<div class="roadmap-wrap" id="frontend-roadmap">
+  <div class="roadmap-inner">
+    <div class="sec-tag"><span class="t-en">Frontend Roadmap</span><span class="t-de">Frontend-Lernpfad</span></div>
+    <h2 class="sec-h t-en">Frontend Developer Roadmap</h2>
+    <h2 class="sec-h t-de">Frontend-Entwickler Lernpfad</h2>
+    <p class="sec-p t-en">A structured, chapter-by-chapter breakdown of everything it takes to become a professional frontend engineer — from how the web works to TypeScript and advanced React.</p>
+    <p class="sec-p t-de">Ein strukturierter, kapitelweiser Überblick über alles, was nötig ist, um professioneller Frontend-Ingenieur zu werden.</p>
+
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot" style="background:var(--green)"></div>Core Topic</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--gold)"></div>Bonus / Advanced</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--purple)"></div>Framework / Library</div>
+    </div>
+
+    <div class="roadmap-chapters">
+
+      <!-- A: HOW THE WEB WORKS -->
+      <div class="ch" id="ch-a">
+        <div class="ch-header" onclick="toggleCh('ch-a')">
+          <div class="ch-letter web">A</div>
+          <div class="ch-meta">
+            <h3>How the Web Works</h3>
+            <p>The foundation of everything — before writing a single line of code</p>
+          </div>
+          <div class="ch-chips">
+            <span class="ch-chip">DNS</span><span class="ch-chip">HTTP</span><span class="ch-chip">HTTPS</span>
+          </div>
+          <span class="ch-arrow">▼</span>
+        </div>
+        <div class="ch-body">
+          <div class="ch-banner">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80" alt="Network servers" loading="lazy">
+            <div class="ch-banner-overlay"><h4>How Browsers Talk to Servers</h4></div>
+          </div>
+          <div class="ch-sections">
+            <div>
+              <div class="ch-sec-title">Core Concepts</div>
+              <div class="topic-grid">
+                <div class="topic-card"><div class="topic-ico blue">🌐</div><div class="topic-body"><h5>Domain Names</h5><p>Human-readable addresses mapped to IP addresses via registrars</p></div></div>
+                <div class="topic-card"><div class="topic-ico blue">🔎</div><div class="topic-body"><h5>DNS (Domain Name System)</h5><p>Translates domain names → IP addresses. Involves resolvers, root servers, TLD servers</p></div></div>
+                <div class="topic-card"><div class="topic-ico blue">🔒</div><div class="topic-body"><h5>HTTP / HTTPS</h5><p>Protocol for transferring data. HTTPS adds TLS encryption for security</p></div></div>
+                <div class="topic-card"><div class="topic-ico blue">🔄</div><div class="topic-body"><h5>Request / Response Cycle</h5><p>Browser sends GET/POST → server responds with HTML, CSS, JS, JSON</p></div></div>
+                <div class="topic-card"><div class="topic-ico blue">📦</div><div class="topic-body"><h5>Browsers & Rendering</h5><p>HTML parsing → CSSOM → DOM → Layout → Paint → Composite</p></div></div>
+                <div class="topic-card"><div class="topic-ico blue">🏠</div><div class="topic-body"><h5>Hosting & Servers</h5><p>Where your files live — static hosts, CDN, origin servers, edge networks</p></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- B: WORKSPACE SETUP -->
+      <div class="ch" id="ch-b">
+        <div class="ch-header" onclick="toggleCh('ch-b')">
+          <div class="ch-letter setup">B</div>
+          <div class="ch-meta">
+            <h3>Workspace Setup</h3>
+            <p>Code editors, AI tools, and essential extensions for maximum productivity</p>
+          </div>
+          <div class="ch-chips">
+            <span class="ch-chip">VS Code</span><span class="ch-chip">Cursor AI</span><span class="ch-chip">Windsurf</span>
+          </div>
+          <span class="ch-arrow">▼</span>
+        </div>
+        <div class="ch-body">
+          <div class="ch-banner">
+            <img src="https://images.unsplash.com/photo-1537498425277-c283d32ef9db?w=900&q=80" alt="Developer workspace" loading="lazy">
+            <div class="ch-banner-overlay"><h4>Your Developer Command Center</h4></div>
+          </div>
+          <div class="ch-sections">
+            <div>
+              <div class="ch-sec-title">Code Editors</div>
+              <div class="tool-row">
+                <div class="tool-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"><span>VS Code</span></div>
+                <div class="tool-badge"><span class="ti">🌊</span><span>WebStorm</span></div>
+                <div class="tool-badge"><span class="ti">📝</span><span>Sublime Text</span></div>
+              </div>
+            </div>
+            <div>
+              <div class="ch-sec-title">AI Code Editors</div>
+              <div class="tool-row">
+                <div class="tool-badge"><span class="ti">🛠️</span><span>Cursor AI</span></div>
+                <div class="tool-badge"><span class="ti">🏄</span><span>Windsurf</span></div>
+                <div class="tool-badge"><span class="ti">⚡</span><span>GitHub Copilot</span></div>
+              </div>
+            </div>
+            <div>
+              <div class="ch-sec-title">Essential Extensions</div>
+              <div class="topic-grid">
+                <div class="topic-card"><div class="topic-ico gold">✨</div><div class="topic-body"><h5>Prettier</h5><p>Opinionated code formatter — consistent style across your entire codebase</p></div></div>
+                <div class="topic-card"><div class="topic-ico gold">🔤</div><div class="topic-body"><h5>Spell Checker</h5><p>Catches typos in code, comments, and variable names before they become bugs</p></div></div>
+                <div class="topic-card"><div class="topic-ico gold">🚀</div><div class="topic-body"><h5>Live Server</h5><p>Hot-reloading local dev server — see changes instantly without manual refresh</p></div></div>
+                <div class="topic-card"><div class="topic-ico gold">🎨</div><div class="topic-body"><h5>ESLint</h5><p>Static analysis to catch code quality issues and enforce consistent patterns</p></div></div>
+                <div class="topic-card"><div class="topic-ico gold">🎯</div><div class="topic-body"><h5>Path IntelliSense</h5><p>Autocompletes file paths so you never mistype an import again</p></div></div>
+                <div class="topic-card"><div class="topic-ico gold">🌈</div><div class="topic-body"><h5>Bracket Pair Colorizer</h5><p>Color-coded bracket pairs for instant visual nesting clarity</p></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- C: HTML -->
+      <div class="ch" id="ch-c">
+        <div class="ch-header" onclick="toggleCh('ch-c')">
+          <div class="ch-letter html">C</div>
+          <div class="ch-meta">
+            <h3>HTML — Structure</h3>
+            <p>The skeleton of every web page — tags, elements, semantics, attributes</p>
+          </div>
+          <div class="ch-chips">
+            <span class="ch-chip">Tags</span><span class="ch-chip">Semantics</span><span class="ch-chip">Attributes</span>
+          </div>
+          <span class="ch-arrow">▼</span>
+        </div>
+        <div class="ch-body">
+          <div class="ch-banner">
+            <img src="https://images.unsplash.com/photo-1621839673705-6617adf9e890?w=900&q=80" alt="Code on screen" loading="lazy">
+            <div class="ch-banner-overlay"><h4>Building the Skeleton of the Web</h4></div>
+          </div>
+          <div class="ch-sections">
+            <div>
+              <div class="ch-sec-title">Core HTML</div>
+              <div class="topic-grid">
+                <div class="topic-card"><div class="topic-ico orange">🏷️</div><div class="topic-body"><h5>Tags & Elements</h5><p>&lt;p&gt;, &lt;div&gt;, &lt;span&gt;, &lt;img&gt;, &lt;a&gt;, &lt;button&gt; — the building blocks</p></div></div>
+                <div class="topic-card"><div class="topic-ico orange">🧱</div><div class="topic-body"><h5>Semantic HTML</h5><p>&lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;section&gt;, &lt;article&gt;, &lt;footer&gt; — meaning matters</p></div></div>
+                <div class="topic-card"><div class="topic-ico orange">⚙️</div><div class="topic-body"><h5>Attributes</h5><p>src, href, class, id, alt, data-* — properties that configure elements</p></div></div>
+                <div class="topic-card"><div class="topic-ico orange">📋</div><div class="topic-body"><h5>Forms & Inputs</h5><p>input types, form validation, label association, fieldset &amp; legend</p></div></div>
+                <div class="topic-card"><div class="topic-ico orange">🖼️</div><div class="topic-body"><h5>Media Elements</h5><p>&lt;img&gt;, &lt;video&gt;, &lt;audio&gt;, &lt;picture&gt; — responsive media handling</p></div></div>
+                <div class="topic-card"><div class="topic-ico orange">♿</div><div class="topic-body"><h5>Accessibility (a11y)</h5><p>ARIA labels, roles, tabindex — making web content usable for everyone</p></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- D: CSS -->
+      <div class="ch" id="ch-d">
+        <div class="ch-header" onclick="toggleCh('ch-d')">
+          <div class="ch-letter css">D</div>
+          <div class="ch-meta">
+            <h3>CSS — Style & Layout</h3>
+            <p>Controls layout, colors, spacing — turning plain HTML into beautiful interfaces</p>
+          </div>
+          <div class="ch-chips">
+            <span class="ch-chip">Flexbox</span><span class="ch-chip">Grid</span><span class="ch-chip">Tailwind</span>
+          </div>
+          <span class="ch-arrow">▼</span>
+        </div>
+        <div class="ch-body">
+          <div class="ch-banner">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80" alt="Design colors" loading="lazy">
+            <div class="ch-banner-overlay"><h4>Making the Web Beautiful</h4></div>
+          </div>
+          <div class="ch-sections">
+            <div>
+              <div class="ch-sec-title">Core CSS</div>
+              <div class="topic-grid">
+                <div class="topic-card"><div class="topic-ico blue">🎯</div><div class="topic-body"><h5>Selectors</h5><p>div, .class, #id, :pseudo-class, ::pseudo-element, attribute selectors</p></div></div>
+                <div class="topic-card"><div class="topic-ico blue">📦</div><div class="topic-body"><h5>Box Model</h5><p>content → padding → border → margin — understanding how every element is sized</p></div></div>
+                <div class="topic-card"><div class="topic-ico blue">📐</div><div class="topic-body"><h5>Positioning</h5><p>static, relative, absolute, fixed, sticky — controlling element placement</p></div></div>
+                <div class="topic-card"><div class="topic-ico blue">↔️</div><div class="topic-body"><h5>Flexbox</h5><p>One-dimensional layouts — align and distribute items along a single axis</p></div></div>
+                <div class="topic-card"><div class="topic-ico blue">⊞</div><div class="topic-body"><h5>CSS Grid</h5><p>Two-dimensional layouts — rows AND columns for complex page structures</p></div></div>
+                <div class="topic-card"><div class="topic-ico blue">📱</div><div class="topic-body"><h5>Responsive Design</h5><p>Media queries, mobile-first approach, fluid typography, breakpoints</p></div></div>
+              </div>
+            </div>
+            <div>
+              <div class="ch-sec-title">⭐ Bonus — Advanced CSS</div>
+              <div class="bonus-grid">
+                <div class="bonus-item">CSS Variables (Custom Properties)</div>
+                <div class="bonus-item">SASS / SCSS Preprocessor</div>
+                <div class="bonus-item">Less Preprocessor</div>
+                <div class="bonus-item">Tailwind CSS Framework</div>
+                <div class="bonus-item">Bootstrap Framework</div>
+                <div class="bonus-item">CSS Animations & Transitions</div>
+                <div class="bonus-item">CSS Clamp & fluid sizing</div>
+                <div class="bonus-item">CSS Container Queries</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- E: JAVASCRIPT -->
+      <div class="ch" id="ch-e">
+        <div class="ch-header" onclick="toggleCh('ch-e')">
+          <div class="ch-letter js">E</div>
+          <div class="ch-meta">
+            <h3>JavaScript — Interactivity</h3>
+            <p>Adds life to web pages — logic, events, async operations, and the DOM</p>
+          </div>
+          <div class="ch-chips">
+            <span class="ch-chip">ES6+</span><span class="ch-chip">DOM</span><span class="ch-chip">Async</span><span class="ch-chip">Fetch</span>
+          </div>
+          <span class="ch-arrow">▼</span>
+        </div>
+        <div class="ch-body">
+          <div class="ch-banner">
+            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=900&q=80" alt="JavaScript code" loading="lazy">
+            <div class="ch-banner-overlay"><h4>Making Pages Come Alive</h4></div>
+          </div>
+          <div class="ch-sections">
+            <div>
+              <div class="ch-sec-title">Core JavaScript</div>
+              <div class="topic-grid">
+                <div class="topic-card"><div class="topic-ico gold">📦</div><div class="topic-body"><h5>Variables & Data Types</h5><p>var/let/const, strings, numbers, booleans, null, undefined, symbols</p></div></div>
+                <div class="topic-card"><div class="topic-ico gold">🔧</div><div class="topic-body"><h5>Functions</h5><p>Declaration, expression, arrow functions, closures, HOF, callbacks</p></div></div>
+                <div class="topic-card"><div class="topic-ico gold">⚡</div><div class="topic-body"><h5>Conditionals & Loops</h5><p>if/else, switch, ternary, for, while, forEach, map, filter, reduce</p></div></div>
+                <div class="topic-card"><div class="topic-ico gold">📋</div><div class="topic-body"><h5>Arrays & Objects</h5><p>Destructuring, spread/rest, object methods, array methods (ES6+)</p></div></div>
+                <div class="topic-card"><div class="topic-ico gold">🌳</div><div class="topic-body"><h5>DOM Manipulation</h5><p>querySelector, createElement, classList, innerHTML, events</p></div></div>
+                <div class="topic-card"><div class="topic-ico gold">🔄</div><div class="topic-body"><h5>Async JS</h5><p>Event loop, Promises, async/await, fetch API, error handling</p></div></div>
+              </div>
+            </div>
+            <div>
+              <div class="ch-sec-title">⭐ Bonus — Advanced JS</div>
+              <div class="bonus-grid">
+                <div class="bonus-item">ESLint & Prettier</div>
+                <div class="bonus-item">ES Modules (import/export)</div>
+                <div class="bonus-item">Vite (Module Bundler)</div>
+                <div class="bonus-item">Webpack</div>
+                <div class="bonus-item">Memory Leaks</div>
+                <div class="bonus-item">Browser DevTools</div>
+                <div class="bonus-item">Web APIs (DOM, Fetch, Storage)</div>
+                <div class="bonus-item">i18n (Internationalization)</div>
+                <div class="bonus-item">Service Workers & PWA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- F: VERSION CONTROL -->
+      <div class="ch" id="ch-f">
+        <div class="ch-header" onclick="toggleCh('ch-f')">
+          <div class="ch-letter vc">F</div>
+          <div class="ch-meta">
+            <h3>Version Control</h3>
+            <p>Tracking every change in your code — collaborate, roll back, branch, merge</p>
+          </div>
+          <div class="ch-chips">
+            <span class="ch-chip">Git</span><span class="ch-chip">GitHub</span><span class="ch-chip">GitLab</span>
+          </div>
+          <span class="ch-arrow">▼</span>
+        </div>
+        <div class="ch-body">
+          <div class="ch-banner">
+            <img src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?w=900&q=80" alt="Git branching" loading="lazy">
+            <div class="ch-banner-overlay"><h4>Never Lose Your Work Again</h4></div>
+          </div>
+          <div class="ch-sections">
+            <div>
+              <div class="ch-sec-title">Core Tools</div>
+              <div class="topic-grid">
+                <div class="topic-card"><div class="topic-ico purple">🌿</div><div class="topic-body"><h5>Git</h5><p>init, add, commit, push, pull, merge, rebase, stash, cherry-pick</p></div></div>
+                <div class="topic-card"><div class="topic-ico purple">🐙</div><div class="topic-body"><h5>GitHub</h5><p>Repos, PRs, Issues, Actions (CI/CD), GitHub Pages, clean READMEs</p></div></div>
+                <div class="topic-card"><div class="topic-ico purple">🦊</div><div class="topic-body"><h5>GitLab</h5><p>Alternative to GitHub with built-in CI/CD pipelines and DevOps features</p></div></div>
+                <div class="topic-card"><div class="topic-ico purple">🪣</div><div class="topic-body"><h5>Bitbucket</h5><p>Atlassian's Git hosting — integrates with Jira and the enterprise toolchain</p></div></div>
+                <div class="topic-card"><div class="topic-ico purple">🌲</div><div class="topic-body"><h5>Branching Strategy</h5><p>main/dev/feature branches, GitFlow, trunk-based development</p></div></div>
+                <div class="topic-card"><div class="topic-ico purple">📝</div><div class="topic-body"><h5>Clean READMEs</h5><p>Project title, badges, setup instructions, demo links, screenshots</p></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- G: REACT + FRAMEWORKS -->
+      <div class="ch" id="ch-g">
+        <div class="ch-header" onclick="toggleCh('ch-g')">
+          <div class="ch-letter fw">G</div>
+          <div class="ch-meta">
+            <h3>Frontend Frameworks — React</h3>
+            <p>Component-driven UIs, state management, hooks, routing, and meta-frameworks</p>
+          </div>
+          <div class="ch-chips">
+            <span class="ch-chip">React</span><span class="ch-chip">Next.js</span><span class="ch-chip">Redux</span><span class="ch-chip">Zustand</span>
+          </div>
+          <span class="ch-arrow">▼</span>
+        </div>
+        <div class="ch-body">
+          <div class="ch-banner">
+            <img src="https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=900&q=80" alt="React development" loading="lazy">
+            <div class="ch-banner-overlay"><h4>The Most In-Demand Frontend Skill</h4></div>
+          </div>
+          <div class="ch-sections">
+            <div>
+              <div class="ch-sec-title">React Core</div>
+              <div class="topic-grid">
+                <div class="topic-card"><div class="topic-ico green">⚛️</div><div class="topic-body"><h5>JSX & Components</h5><p>JavaScript XML syntax, functional components, composing UI from reusable pieces</p></div></div>
+                <div class="topic-card"><div class="topic-ico green">🔄</div><div class="topic-body"><h5>Props & State</h5><p>Passing data down (props), local state with useState, controlled components</p></div></div>
+                <div class="topic-card"><div class="topic-ico green">👆</div><div class="topic-body"><h5>Event Handling</h5><p>onClick, onChange, onSubmit, onKeyDown — wiring up user interactions</p></div></div>
+                <div class="topic-card"><div class="topic-ico green">🔁</div><div class="topic-body"><h5>Lifecycle & Hooks</h5><p>useState, useEffect, useContext, useRef — mounting, updating, unmounting</p></div></div>
+                <div class="topic-card"><div class="topic-ico green">📋</div><div class="topic-body"><h5>Lists, Keys & Forms</h5><p>Rendering arrays with map(), stable keys, controlled & uncontrolled forms</p></div></div>
+                <div class="topic-card"><div class="topic-ico green">🗺️</div><div class="topic-body"><h5>React Router</h5><p>Client-side navigation, dynamic routes, nested routes, useNavigate, useParams</p></div></div>
+                <div class="topic-card"><div class="topic-ico green">🧩</div><div class="topic-body"><h5>Context API</h5><p>Global state without prop drilling — createContext, Provider, useContext</p></div></div>
+                <div class="topic-card"><div class="topic-ico green">📦</div><div class="topic-body"><h5>Package Managers</h5><p>npm, Yarn, pnpm — installing, updating, managing dependencies</p></div></div>
+              </div>
+            </div>
+            <div>
+              <div class="ch-sec-title">⭐ Bonus — Advanced React</div>
+              <div class="topic-grid">
+                <div class="topic-card"><div class="topic-ico purple">🚀</div><div class="topic-body"><h5>useMemo & useCallback</h5><p>Memoization to prevent unnecessary re-renders in performance-critical components</p></div></div>
+                <div class="topic-card"><div class="topic-ico purple">🏗️</div><div class="topic-body"><h5>Suspense, Lazy, Memo</h5><p>Code splitting, lazy loading, Fragment, built-in performance optimization APIs</p></div></div>
+                <div class="topic-card"><div class="topic-ico purple">🔮</div><div class="topic-body"><h5>React 19 Features</h5><p>Server Components, useFormStatus, useOptimistic, use() hook</p></div></div>
+                <div class="topic-card"><div class="topic-ico purple">🎭</div><div class="topic-body"><h5>HOC & Render Props</h5><p>Higher-Order Components for reusable logic wrapping across components</p></div></div>
+                <div class="topic-card"><div class="topic-ico purple">🌐</div><div class="topic-body"><h5>SSR vs SPA</h5><p>Server-Side Rendering vs Single Page App — trade-offs for SEO and performance</p></div></div>
+                <div class="topic-card"><div class="topic-ico purple">🗄️</div><div class="topic-body"><h5>Redux / Zustand / Recoil</h5><p>Advanced global state management for complex, large-scale applications</p></div></div>
+              </div>
+            </div>
+            <div>
+              <div class="ch-sec-title">⭐ Bonus Extra — Meta Frameworks & Testing</div>
+              <div class="bonus-grid">
+                <div class="bonus-item">Next.js (Meta-Framework)</div>
+                <div class="bonus-item">Unit Testing (Jest, Vitest)</div>
+                <div class="bonus-item">Integration Testing</div>
+                <div class="bonus-item">E2E Testing (Cypress)</div>
+                <div class="bonus-item">E2E Testing (Playwright)</div>
+                <div class="bonus-item">CSS-in-JS (Styled Components)</div>
+                <div class="bonus-item">Static Hosting (Vercel, Netlify)</div>
+                <div class="bonus-item">Dynamic Hosting (Heroku, Render)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- H: TYPESCRIPT -->
+      <div class="ch" id="ch-h">
+        <div class="ch-header" onclick="toggleCh('ch-h')">
+          <div class="ch-letter ts">H</div>
+          <div class="ch-meta">
+            <h3>TypeScript — Type Safety</h3>
+            <p>Catches bugs before runtime — adds static typing to JavaScript for safer, scalable code</p>
+          </div>
+          <div class="ch-chips">
+            <span class="ch-chip">Types</span><span class="ch-chip">Interfaces</span><span class="ch-chip">Generics</span>
+          </div>
+          <span class="ch-arrow">▼</span>
+        </div>
+        <div class="ch-body">
+          <div class="ch-banner">
+            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=900&q=80" alt="TypeScript code" loading="lazy">
+            <div class="ch-banner-overlay"><h4>JavaScript with Superpowers</h4></div>
+          </div>
+          <div class="ch-sections">
+            <div>
+              <div class="ch-sec-title">Core TypeScript</div>
+              <div class="topic-grid">
+                <div class="topic-card"><div class="topic-ico cyan">🔷</div><div class="topic-body"><h5>Static vs Dynamic Typing</h5><p>Type-checking at compile time vs runtime — catching errors before they happen</p></div></div>
+                <div class="topic-card"><div class="topic-ico cyan">📝</div><div class="topic-body"><h5>Types & Interfaces</h5><p>Defining shapes for data — primitive, object, union, intersection, literal types</p></div></div>
+                <div class="topic-card"><div class="topic-ico cyan">🔧</div><div class="topic-body"><h5>Utility Types</h5><p>Partial&lt;&gt;, Required&lt;&gt;, Pick&lt;&gt;, Omit&lt;&gt;, Record&lt;&gt; — TypeScript's built-in helpers</p></div></div>
+                <div class="topic-card"><div class="topic-ico cyan">🧬</div><div class="topic-body"><h5>Generics</h5><p>Reusable, type-safe components and functions — &lt;T&gt; parameters for flexible typing</p></div></div>
+                <div class="topic-card"><div class="topic-ico cyan">🏛️</div><div class="topic-body"><h5>OOP vs FP</h5><p>Classes, inheritance, encapsulation vs pure functions, immutability, composition</p></div></div>
+                <div class="topic-card"><div class="topic-ico cyan">🎨</div><div class="topic-body"><h5>Decorators</h5><p>Metadata annotations for classes and methods — heavily used in Angular & NestJS</p></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end roadmap-chapters -->
+  </div>
+</div>
+
+<script>
+function toggleCh(id){
+  const el=document.getElementById(id);
+  el.classList.toggle('open');
+}
+// Auto-open first chapter
+document.addEventListener('DOMContentLoaded',()=>{ document.getElementById('ch-a').classList.add('open'); });
+</script>
 
 <!-- EXPERIENCE -->
 <div class="sec" id="experience">
