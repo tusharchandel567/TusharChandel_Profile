@@ -5,22 +5,17 @@ import FloatingSkills from './components/FloatingSkills';
 import StatsCounter from './components/StatsCounter';
 import About from './components/About';
 import Skills from './components/Skills';
-import FrontendSkills from './components/FrontendSkills';
-import FrontendProjects from './components/FrontendProjects';
+import DashboardMockup from './components/DashboardMockup';
 import Projects from './components/Projects';
-import CodeStats from './components/CodeStats';
-import TechRadar from './components/TechRadar';
-import PortfolioGallery from './components/PortfolioGallery';
-import Freelancing from './components/Freelancing';
+import DataVizGallery from './components/DataVizGallery';
+import Deliverables from './components/Deliverables';
 import ResumeBuilder from './components/ResumeBuilder';
-import AITools from './components/AITools';
 import Experience from './components/Experience';
+import DataEngineering from './components/DataEngineering';
 import OfferLetter from './components/OfferLetter';
 import Education from './components/Education';
-import GermanLearning from './components/GermanLearning';
 import OpenRoles from './components/OpenRoles';
 import JobAlerts from './components/JobAlerts';
-import Community from './components/Community';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -29,29 +24,24 @@ export default function App() {
   return (
     <div className="min-h-screen" style={{ background: '#050709', color: '#EDF2F7' }}>
       <Nav />
-      <Hero />                       {/* 🇮🇳🇩🇪 Big blinking floating flags */}
-      <CareerSwitch />
-      <FloatingSkills />
-      <StatsCounter />
+      <Hero />                         {/* Real hoodie photo with Germany flag ring */}
+      <CareerSwitch />                 {/* 3-stage career story */}
+      <FloatingSkills />               {/* NEW: Rotating/floating skill orbs + India+Germany flag bg */}
+      <StatsCounter />                 {/* Animated count-up KPIs */}
       <About />
       <Skills />
-      <FrontendSkills />
-      <PortfolioGallery />           {/* NEW: 6 project cards with filter */}
-      <FrontendProjects />
+      <DashboardMockup />              {/* Full executive dashboard preview */}
       <Projects />
-      <CodeStats />                 {/* NEW: GitHub stats, heatmap, language dist */}
-      <TechRadar />                 {/* NEW: Adopt/Trial/Assess/Hold radar */}
-      <Freelancing />               {/* NEW: 6 platforms + categories */}
-      <ResumeBuilder />
-      <AITools />
+      <DataVizGallery />               {/* 8 chart types + keyword cloud */}
+      <Deliverables />                 {/* 6 deliverables with timelines */}
+      <ResumeBuilder />                {/* AI Resume + Cover Letter Builder */}
       <Experience />
-      <OfferLetter />
+      <DataEngineering />
+      <OfferLetter />                  {/* RAYGAIN offer letter */}
       <Education />
-      <GermanLearning />            {/* 🇩🇪 B2 learning journey */}
-      <OpenRoles />
-      <JobAlerts />
-      <Community />                {/* NEW: 8 platforms + blog posts */}
-      <Testimonials />
+      <OpenRoles />                    {/* NEW: Open roles in India & Germany with salaries */}
+      <JobAlerts />                    {/* Daily job alerts + subscribe */}
+      <Testimonials />                 {/* Company endorsements */}
       <Contact />
       <Footer />
     </div>

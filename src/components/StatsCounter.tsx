@@ -55,17 +55,17 @@ export default function StatsCounter() {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-<Stat n={50} suffix="+" label="Components Built" icon="⚛️" color="#9B72FF" />
-        <Stat n={12} suffix=" wk" label="Production Internship" icon="💻" color="#F5C842" />
-        <Stat n={10} suffix="+" label="Git Commits/Week" icon="🔀" color="#00D4AA" />
-        <Stat n={50} suffix="+" label="LeetCode Problems" icon="🧩" color="#F5C842" />
-      </div>
+          <Stat n={100000} suffix="+" label="Rows Analyzed" icon="📊" color="#F5C842" />
+          <Stat n={5} suffix="★" label="SQL HackerRank" icon="🗄️" color="#F5C842" />
+          <Stat n={12} suffix=" wk" label="Frontend Internship" icon="💻" color="#00D4AA" />
+          <Stat n={20} suffix="+" label="DAX Measures" icon="📈" color="#9B72FF" />
+        </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
-        <Stat n={4} label="Full Projects Shipped" icon="🚀" color="#9B72FF" />
-        <Stat n={6} suffix="+" label="Backend Skills" icon="🗄️" color="#00D4AA" />
-        <Stat n={3} label="API Integrations" icon="🔗" color="#F5C842" />
-        <Stat n={4} label="Years B.Tech CSE" icon="🎓" color="#9B72FF" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+          <Stat n={4} label="Customer Segments" icon="🎯" color="#F5C842" />
+          <Stat n={15} suffix="+" label="BI Dashboards" icon="📊" color="#00D4AA" />
+          <Stat n={3} label="End-to-End Projects" icon="⚙️" color="#9B72FF" />
+          <Stat n={4} label="Years B.Tech CSE" icon="🎓" color="#F5C842" />
         </div>
       </div>
     </section>

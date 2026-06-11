@@ -17,7 +17,7 @@ export default function Contact() {
     { ico: '🐙', l: 'GitHub', v: 'tusharchandel567', href: 'https://github.com/tusharchandel567' },
     { ico: '📄', l: 'Resume', v: 'View / Download PDF ↗', href: 'https://drive.google.com/file/d/1YnTtZz-gOIpT8y5WOL6htbC6g_OzGs-V/view' },
   ];
-  const roles = ['Frontend Developer', 'React Developer', 'Software Engineer', 'Full-Stack Developer', 'UI/UX Engineer', 'Internship / Praktikum', 'Werkstudent (Germany)'];
+  const roles = ['Data Analyst', 'BI Developer', 'Business Analyst', 'Junior Data Engineer', 'Werkstudent (Germany)', 'Internship / Praktikum', 'Freelance Data Project'];
 
   return (
     <section id="contact" className="py-20 border-t border-[#1A2333]" style={{ background: '#080C10' }}>
@@ -28,8 +28,8 @@ export default function Contact() {
           style={{ background: 'rgba(34,212,122,.08)', border: '1px solid rgba(34,212,122,.22)' }}>
           <div className="flex items-center gap-3">
             <div className="w-2 h-2 rounded-full bg-[#22D47A] pulse-dot"></div>
-            <span className="font-mono text-[0.74rem] font-medium" style={{ color: '#9B72FF' }}>
-              🟢 Open to Work — Frontend Dev · Software Engineer · Full-Stack
+            <span className="font-mono text-[0.74rem] text-[#22D47A] font-medium">
+              🟢 Open to Work — Data Analyst · Data Engineer · Werkstudent (DE)
             </span>
           </div>
           <div className="flex flex-wrap gap-1.5">
@@ -42,21 +42,11 @@ export default function Contact() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div>
-            {/* Mini profile card */}
-            <div className="flex items-center gap-4 mb-6 p-4 rounded-xl" style={{ background: '#0F151C', border: '1px solid rgba(245,200,66,.2)' }}>
-              <img src="/profile.jpg" alt="Tushar" className="w-16 h-16 rounded-full object-cover flex-shrink-0" style={{ border: '2px solid #F5C842' }} />
-              <div>
-                <div className="font-display text-[0.95rem] font-extrabold text-white">Tushar Chandel</div>
-                <div className="font-mono text-[0.65rem]" style={{ color: '#9B72FF' }}>Software Engineer · B.Tech CSE</div>
-                <div className="text-[0.65rem] text-[#7A8A9F]">📍 Meerut, IN · Open to Remote 🇮🇳</div>
-              </div>
-            </div>
-
             <h2 className="font-display font-extrabold text-white leading-[1.1] mb-4" style={{ fontSize: 'clamp(1.6rem,3vw,2.2rem)' }}>
-              Let's Build <span style={{ color: '#9B72FF' }}>Great Software</span> Together
+              Let's Build Something with <span className="gold">Data</span>
             </h2>
             <p className="text-[0.86rem] text-[#7A8A9F] leading-[1.85] mb-6">
-              Actively looking for Frontend Developer, Software Engineer, and Full-Stack roles. Full-time, internship, or remote — let's talk!
+              Actively looking for Data Analyst, BI Developer, and Data Engineering roles. Full-time, Werkstudent, or internship — reach out!
             </p>
 
             <div className="flex flex-col gap-2 mb-6">
