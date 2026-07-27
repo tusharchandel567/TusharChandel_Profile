@@ -121,12 +121,21 @@ section{padding:108px 0;position:relative;}
 .htc-3{bottom:25%;left:6%;animation-delay:1.5s;animation-duration:5.5s;}
 .htc-4{bottom:18%;right:8%;animation-delay:1s;animation-duration:6.5s;}
 .htc-5{top:55%;left:1%;animation-delay:.5s;animation-duration:7s;}
+.htc-6{top:8%;left:38%;animation-delay:1.2s;animation-duration:6.2s;}
 
 .hex-grid{position:absolute;top:0;right:0;width:300px;height:300px;pointer-events:none;opacity:.12;}
 .hex{position:absolute;width:30px;height:30px;background:linear-gradient(135deg,var(--gold),var(--neon));clip-path:polygon(25% 5%,75% 5%,100% 50%,75% 95%,25% 95%,0% 50%);animation:hexSpin 20s linear infinite;}
 .hex:nth-child(2){left:30px;top:30px;animation-duration:25s;animation-direction:reverse;background:linear-gradient(135deg,var(--pink),var(--purple));}
 .hex:nth-child(3){left:60px;top:0;animation-duration:30s;background:linear-gradient(135deg,var(--neon),var(--blue));}
 .hex:nth-child(4){left:0;top:60px;animation-duration:18s;animation-direction:reverse;background:linear-gradient(135deg,var(--purple),var(--pink));}
+
+/* === AURORA AMBIENT LAYER (NEW) === */
+.aurora-layer{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;opacity:.5;}
+.aurora-band{position:absolute;width:140%;height:340px;left:-20%;filter:blur(50px);opacity:.35;border-radius:50%;animation:auroraShift 12s ease-in-out infinite;}
+.aurora-1{top:-140px;background:linear-gradient(90deg,transparent,rgba(245,197,24,.35),rgba(0,229,192,.25),transparent);animation-duration:16s;}
+.aurora-2{top:40vh;background:linear-gradient(90deg,transparent,rgba(255,60,172,.22),rgba(123,47,190,.28),transparent);animation-duration:20s;animation-direction:reverse;}
+.aurora-3{top:85vh;background:linear-gradient(90deg,transparent,rgba(0,136,255,.2),rgba(0,229,192,.22),transparent);animation-duration:24s;}
+.grain-overlay{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.025;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
 
 /* === PROFILE CARD === */
 .profile-card{position:relative;border-radius:32px;animation:slideLeft .65s .12s ease both;}
@@ -349,32 +358,38 @@ section{padding:108px 0;position:relative;}
 .phase-1::before{background:linear-gradient(90deg,var(--gold),rgba(0,229,192,.4),transparent);}
 .phase-2::before{background:linear-gradient(90deg,var(--neon),rgba(123,47,190,.4),transparent);}
 .phase-3::before{background:linear-gradient(90deg,#7B2FBE,rgba(255,60,172,.4),transparent);}
+.phase-4::before{background:linear-gradient(90deg,#FF3CAC,rgba(0,229,192,.5),transparent);}
 .phase-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;}
 .phase-title{font-family:var(--font-display);font-size:1.1rem;color:#fff;font-weight:700;display:flex;align-items:center;gap:9px;}
 .phase-title .phase-badge{font-family:var(--font-mono);font-size:.55rem;padding:3px 9px;border-radius:999px;letter-spacing:.1em;font-weight:800;color:#000;}
 .phase-1 .phase-badge{background:linear-gradient(135deg,#f5c518,#d4a017);}
 .phase-2 .phase-badge{background:linear-gradient(135deg,#00e5c0,#0088ff);}
 .phase-3 .phase-badge{background:linear-gradient(135deg,#7B2FBE,#FF3CAC);}
+.phase-4 .phase-badge{background:linear-gradient(135deg,#FF3CAC,#00e5c0);}
 .phase-progress{font-family:var(--font-mono);font-size:.7rem;color:var(--gold);font-weight:700;}
 .phase-bar{height:4px;background:rgba(255,255,255,.05);border-radius:4px;margin-bottom:16px;overflow:hidden;position:relative;}
 .phase-bar-fill{position:absolute;top:0;left:0;height:100%;width:0;border-radius:4px;transition:width 1.5s cubic-bezier(.23,1,.32,1);}
 .phase-1 .phase-bar-fill{background:linear-gradient(90deg,var(--gold),var(--neon));box-shadow:0 0 8px var(--gold);}
 .phase-2 .phase-bar-fill{background:linear-gradient(90deg,var(--neon),#7B2FBE);box-shadow:0 0 8px var(--neon);}
 .phase-3 .phase-bar-fill{background:linear-gradient(90deg,#7B2FBE,var(--pink));box-shadow:0 0 8px #7B2FBE;}
+.phase-4 .phase-bar-fill{background:linear-gradient(90deg,var(--pink),var(--neon));box-shadow:0 0 8px var(--pink);}
 .phase-sub{font-family:var(--font-mono);font-size:.62rem;color:var(--muted2);letter-spacing:.05em;margin-bottom:10px;}
 .skill-cat{display:flex;flex-direction:column;gap:11px;}
 .skill-cat+.skill-cat{margin-top:14px;}
 .skill-cat-title{font-family:var(--font-mono);font-size:.62rem;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px;display:flex;align-items:center;gap:6px;}
 .phase-2 .skill-cat-title{color:var(--neon);}
 .phase-3 .skill-cat-title{color:#c084fc;}
+.phase-4 .skill-cat-title{color:var(--pink);}
 .skill-row{display:flex;flex-wrap:wrap;gap:5px;}
 .skill-chip{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:5px;padding:3px 9px;font-size:.62rem;font-weight:600;color:#a0a0c0;transition:all .2s;}
 .skill-chip:hover{border-color:rgba(245,197,24,.3);color:var(--gold);background:rgba(245,197,24,.05);}
 .phase-2 .skill-chip:hover{border-color:var(--neon);color:var(--neon);background:rgba(0,229,192,.05);}
 .phase-3 .skill-chip:hover{border-color:#c084fc;color:#c084fc;background:rgba(123,47,190,.05);}
+.phase-4 .skill-chip:hover{border-color:var(--pink);color:var(--pink);background:rgba(255,60,172,.05);}
 .skill-chip.hot{background:rgba(245,197,24,.07);border-color:rgba(245,197,24,.22);color:#d4a017;}
 .phase-2 .skill-chip.hot{background:rgba(0,229,192,.07);border-color:rgba(0,229,192,.22);color:var(--neon);}
 .phase-3 .skill-chip.hot{background:rgba(123,47,190,.07);border-color:rgba(123,47,190,.22);color:#c084fc;}
+.phase-4 .skill-chip.hot{background:rgba(255,60,172,.08);border-color:rgba(255,60,172,.25);color:var(--pink);}
 
 .skill-bars{display:flex;flex-direction:column;gap:13px;margin-top:18px;}
 .sbar{display:grid;grid-template-columns:200px 1fr 44px;align-items:center;gap:13px;}
@@ -427,6 +442,7 @@ section{padding:108px 0;position:relative;}
 .pv-py{background:linear-gradient(135deg,rgba(0,230,118,.14),rgba(0,229,192,.08));}
 .pv-sql{background:linear-gradient(135deg,rgba(245,197,24,.11),rgba(123,47,190,.09));}
 .pv-ai{background:linear-gradient(135deg,rgba(123,47,190,.16),rgba(255,60,172,.1));}
+.pv-agent{background:linear-gradient(135deg,rgba(255,60,172,.18),rgba(0,229,192,.12));}
 .feat-vis{padding:38px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(245,197,24,.14),rgba(0,229,192,.08));border-left:1px solid rgba(255,255,255,.05);gap:10px;position:relative;}
 .feat-vis::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 12px,rgba(245,197,24,.03) 12px,rgba(245,197,24,.03) 13px);}
 .feat-emoji{font-size:4.5rem;position:relative;z-index:1;}
@@ -504,6 +520,22 @@ section{padding:108px 0;position:relative;}
 .lb-hi{background:linear-gradient(90deg,#ff6600,#ffffff,#00aa00);}
 .lang-note{font-size:.66rem;margin-top:10px;opacity:.75;font-family:var(--font-mono);}
 .lang-de-learning{background:rgba(255,215,0,.1);border:1px solid rgba(255,215,0,.3);border-radius:7px;padding:7px 11px;margin-top:11px;font-size:.66rem;color:#ffd700;display:flex;align-items:center;gap:6px;}
+
+/* === TRANSLATE / SITE LANGUAGE (NEW) === */
+.translate-widget{position:fixed;bottom:24px;right:78px;z-index:8900;}
+.translate-btn{width:46px;height:46px;border-radius:50%;background:var(--surface);border:1px solid rgba(245,197,24,.25);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.2rem;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.4);transition:all .25s;}
+.translate-btn:hover{border-color:var(--gold);transform:translateY(-2px) rotate(8deg);box-shadow:0 10px 24px rgba(245,197,24,.25);}
+.translate-menu{position:absolute;bottom:58px;right:0;background:var(--surface);border:1px solid rgba(245,197,24,.2);border-radius:14px;padding:8px;min-width:190px;box-shadow:0 20px 44px rgba(0,0,0,.6);display:none;flex-direction:column;gap:3px;}
+.translate-menu.show{display:flex;animation:fadeUp .2s ease;}
+.translate-menu-head{font-family:var(--font-mono);font-size:.55rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;padding:6px 10px 8px;}
+.t-opt{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:9px;cursor:pointer;font-size:.78rem;color:var(--text);transition:background .15s;background:none;border:none;text-align:left;width:100%;font-family:var(--font-body);}
+.t-opt:hover{background:rgba(245,197,24,.08);}
+.t-opt.active{color:var(--gold);background:rgba(245,197,24,.06);}
+.t-opt .flag{font-size:1.05rem;}
+.t-opt .native{margin-left:auto;font-size:.62rem;color:var(--muted);font-family:var(--font-mono);}
+.translate-note{font-size:.56rem;color:var(--muted);padding:6px 10px 2px;border-top:1px solid rgba(255,255,255,.05);margin-top:4px;line-height:1.5;}
+[data-i18n-active="true"] #hero-canvas{opacity:.6;}
+@media(max-width:768px){.translate-widget{right:24px;bottom:80px;}}
 
 /* === OPEN TO WORK === */
 #openwork{background:var(--bg2);position:relative;overflow:hidden;}
@@ -719,6 +751,8 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
 </head>
 <body>
 <div id="prog"></div>
+<div class="aurora-layer"><div class="aurora-band aurora-1"></div><div class="aurora-band aurora-2"></div><div class="aurora-band aurora-3"></div></div>
+<div class="grain-overlay"></div>
 <div class="toast" id="toast"><span id="toast-ico">✅</span><span id="toast-msg">Done!</span></div>
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
@@ -726,7 +760,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
 <div class="top-stats">
   <div class="ts-left">
     <div class="ts-l"><span class="ts-dot"></span> Tushar Chandel · Data Analyst Portfolio</div>
-    <div class="ts-l">📊 SQL · Power BI · Python · Databricks</div>
+    <div class="ts-l">📊 SQL · Power BI · Python · Databricks · Agentic AI</div>
   </div>
   <div class="ts-right">
     <div class="ts-l">🟢 Available · June 2026</div>
@@ -754,6 +788,19 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
   <div class="theme-btn theme-blue" data-theme="blue" title="Blue"></div>
 </div>
 
+<div class="translate-widget" id="translateWidget">
+  <button class="translate-btn" id="translateBtn" title="Translate page">🌐</button>
+  <div class="translate-menu" id="translateMenu">
+    <div class="translate-menu-head">// Translate this page</div>
+    <button class="t-opt active" data-lang="en"><span class="flag">🇬🇧</span> English <span class="native">EN</span></button>
+    <button class="t-opt" data-lang="hi"><span class="flag">🇮🇳</span> हिन्दी <span class="native">HI</span></button>
+    <button class="t-opt" data-lang="de"><span class="flag">🇩🇪</span> Deutsch <span class="native">DE</span></button>
+    <button class="t-opt" data-lang="es"><span class="flag">🇪🇸</span> Español <span class="native">ES</span></button>
+    <button class="t-opt" data-lang="fr"><span class="flag">🇫🇷</span> Français <span class="native">FR</span></button>
+    <div class="translate-note">Instantly translates key headings &amp; labels client-side. For full-page translation use your browser's built-in translator.</div>
+  </div>
+</div>
+
 <div class="cmd-palette" id="cmdPalette">
   <div class="cmd-box">
     <div class="cmd-search">
@@ -764,7 +811,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
     <div class="cmd-list" id="cmdList">
       <div class="cmd-item active" data-target="hero"><span class="cmd-item-ico">🏠</span> Home / Hero <span class="cmd-item-meta">G H</span></div>
       <div class="cmd-item" data-target="about"><span class="cmd-item-ico">👤</span> About Me <span class="cmd-item-meta">G A</span></div>
-      <div class="cmd-item" data-target="skills"><span class="cmd-item-ico">🛠️</span> Skills · 3 Phases <span class="cmd-item-meta">G S</span></div>
+      <div class="cmd-item" data-target="skills"><span class="cmd-item-ico">🛠️</span> Skills · 4 Phases <span class="cmd-item-meta">G S</span></div>
       <div class="cmd-item" data-target="experience"><span class="cmd-item-ico">💼</span> Experience <span class="cmd-item-meta">G E</span></div>
       <div class="cmd-item" data-target="projects"><span class="cmd-item-ico">📊</span> Projects <span class="cmd-item-meta">G P</span></div>
       <div class="cmd-item" data-target="certs"><span class="cmd-item-ico">📜</span> Certifications <span class="cmd-item-meta">G X</span></div>
@@ -776,6 +823,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
       <div class="cmd-item" onclick="openYoutube()"><span class="cmd-item-ico">▶</span> Open YouTube</div>
       <div class="cmd-item" onclick="openInstagram()"><span class="cmd-item-ico">📷</span> Open Instagram</div>
       <div class="cmd-item" onclick="copyEmail()"><span class="cmd-item-ico">📧</span> Copy Email</div>
+      <div class="cmd-item" onclick="document.getElementById('translateBtn').click()"><span class="cmd-item-ico">🌐</span> Translate Page</div>
     </div>
   </div>
 </div>
@@ -810,6 +858,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
     <span class="htc htc-3">🐍 Python</span>
     <span class="htc htc-4">🔥 Databricks</span>
     <span class="htc htc-5">🧠 AI · LLM</span>
+    <span class="htc htc-6">🤖 Agentic AI</span>
   </div>
   <div class="hex-grid">
     <div class="hex"></div>
@@ -827,13 +876,14 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
         <span class="hrole">🖥️ BI Developer</span>
         <span class="hrole">🐍 Python Analyst</span>
         <span class="hrole">🧠 AI Builder</span>
+        <span class="hrole">🤖 Agentic AI Engineer</span>
         <span class="hrole">🔥 Databricks Learner</span>
         <span class="hrole">✍ Content Creator</span>
         <span class="hrole">🎬 Video Editor</span>
         <span class="hrole">🎨 Graphic Designer</span>
       </div>
       <p class="hero-desc">
-        Turning raw data into <strong>actionable insights</strong> with SQL, Python, Power BI, Tableau, Databricks &amp; AI.
+        Turning raw data into <strong>actionable insights</strong> with SQL, Python, Power BI, Tableau, Databricks, Agentic AI &amp; LLMs.
         Currently <strong>Data Analyst Intern @ Raygain Technologies Pvt. Ltd.</strong> · Final-year B.Tech CSE ·
         5-Star SQL · <strong>Microsoft Data Analyst Associate</strong> · Open to India 🇮🇳 &amp; Remote 🌍.
       </p>
@@ -877,11 +927,11 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
             <div class="flag-pill flag-remote"><span class="flag-emoji">🌍</span>REMOTE</div>
           </div>
           <div class="p-name">Tushar Chandel</div>
-          <div class="p-role">Data Analyst · BI Developer · Content Creator</div>
+          <div class="p-role">Data Analyst · BI Developer · Agentic AI Engineer</div>
           <div class="p-loc">📍 Noida, India · Open to Remote 🌍</div>
         </div>
         <div class="card-stats">
-          <div class="cs"><div class="cs-n" data-count="16" data-suffix="+">0</div><div class="cs-l">Projects</div></div>
+          <div class="cs"><div class="cs-n" data-count="18" data-suffix="+">0</div><div class="cs-l">Projects</div></div>
           <div class="cs"><div class="cs-n" data-count="6">0</div><div class="cs-l">Certs</div></div>
           <div class="cs"><div class="cs-n" data-count="95" data-suffix="%">0</div><div class="cs-l">SQL Score</div></div>
           <div class="cs"><div class="cs-n" data-count="3">0</div><div class="cs-l">Langs</div></div>
@@ -891,9 +941,10 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
           <div class="id-chips">
             <span class="id-chip hot">SQL</span><span class="id-chip hot">Power BI</span>
             <span class="id-chip hot">Python</span><span class="id-chip hot">Tableau</span>
-            <span class="id-chip hot">Excel</span><span class="id-chip">Databricks</span>
+            <span class="id-chip hot">Excel</span><span class="id-chip hot">Agentic AI</span>
+            <span class="id-chip">Databricks</span>
             <span class="id-chip">Azure</span><span class="id-chip">OpenAI</span>
-            <span class="id-chip">DAX</span><span class="id-chip">Medium</span>
+            <span class="id-chip">DAX</span><span class="id-chip">LangChain</span>
           </div>
           <div class="work-prefs">
             <div class="wp"><div class="wp-ico">🇮🇳</div><div class="wp-name">India</div><div class="wp-sub">On-site · Hybrid</div></div>
@@ -903,7 +954,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
           </div>
           <div class="avail-card" style="margin-top:10px;">
             <span class="live-dot"></span>
-            <div><div class="avail-top">Available for Work</div><div class="avail-sub">Data Analyst · BI · Content · AI</div></div>
+            <div><div class="avail-top">Available for Work</div><div class="avail-sub">Data Analyst · BI · Agentic AI · Content</div></div>
           </div>
         </div>
       </div>
@@ -916,9 +967,9 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
   <div class="container">
     <div class="impact-row reveal">
       <div class="impact-cell">
-        <span class="impact-n" data-count="16" data-suffix="+">0</span>
+        <span class="impact-n" data-count="18" data-suffix="+">0</span>
         <div class="impact-l">Data Projects</div>
-        <div class="impact-s">Dashboards · EDA · ML</div>
+        <div class="impact-s">Dashboards · EDA · ML · Agents</div>
       </div>
       <div class="impact-cell">
         <span class="impact-n" data-count="6">0</span>
@@ -959,6 +1010,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
     <span class="mq-item">🐍 PYTHON · PANDAS <span class="dot"></span></span>
     <span class="mq-item">📈 POWER BI · TABLEAU <span class="dot"></span></span>
     <span class="mq-item">🔥 DATABRICKS <span class="dot"></span></span>
+    <span class="mq-item">🤖 AGENTIC AI · RAG <span class="dot"></span></span>
     <span class="mq-item">🧠 AI · OPENAI · LLM <span class="dot"></span></span>
     <span class="mq-item">☁️ AZURE CERTIFIED <span class="dot"></span></span>
     <span class="mq-item">💼 RAYGAIN TECH INTERN <span class="dot"></span></span>
@@ -970,6 +1022,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
     <span class="mq-item">🐍 PYTHON · PANDAS <span class="dot"></span></span>
     <span class="mq-item">📈 POWER BI · TABLEAU <span class="dot"></span></span>
     <span class="mq-item">🔥 DATABRICKS <span class="dot"></span></span>
+    <span class="mq-item">🤖 AGENTIC AI · RAG <span class="dot"></span></span>
     <span class="mq-item">🧠 AI · OPENAI · LLM <span class="dot"></span></span>
     <span class="mq-item">☁️ AZURE CERTIFIED <span class="dot"></span></span>
     <span class="mq-item">💼 RAYGAIN TECH INTERN <span class="dot"></span></span>
@@ -1074,15 +1127,15 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
       <div class="reveal">
         <h2 class="sec-title">Data that tells<br><span class="ac">compelling stories.</span></h2>
         <div class="about-text">
-          <p>I am <strong>Tushar Chandel</strong>, a final-year B.Tech CSE student at <strong>Meerut Institute of Technology</strong> (2022–2026). I work as a <strong>Data Analyst &amp; BI Developer</strong> with strong expertise in SQL, Python, Power BI, Tableau, Databricks &amp; Azure — transforming raw datasets into strategic business decisions.</p>
-          <p>I hold a <strong>5-Star SQL badge on HackerRank</strong>, the <strong>Microsoft Data Analyst Associate (PL-300)</strong>, and <strong>Azure Data Fundamentals (DP-900)</strong>. Currently a <strong>Data Analyst Intern @ Raygain Technologies</strong> (Jan–May 2026) building production dashboards, designing data models, and integrating AI workflows.</p>
-          <p>Beyond the data, I'm also an active <strong>content creator on Medium, YouTube &amp; Instagram</strong> — sharing tutorials, design work &amp; career advice. My goal: become a <strong>Senior Data Analyst / Analytics Engineer</strong> by 2028.</p>
+          <p>I am <strong>Tushar Chandel</strong>, a final-year B.Tech CSE student at <strong>Meerut Institute of Technology</strong> (2022–2026). I work as a <strong>Data Analyst &amp; BI Developer</strong> with strong expertise in SQL, Python, Power BI, Tableau, Databricks, Azure &amp; Agentic AI — transforming raw datasets into strategic business decisions.</p>
+          <p>I hold a <strong>5-Star SQL badge on HackerRank</strong>, the <strong>Microsoft Data Analyst Associate (PL-300)</strong>, and <strong>Azure Data Fundamentals (DP-900)</strong>. Currently a <strong>Data Analyst Intern @ Raygain Technologies</strong> (Jan–May 2026) building production dashboards, designing data models, and integrating AI &amp; agentic workflows.</p>
+          <p>Beyond the data, I'm also an active <strong>content creator on Medium, YouTube &amp; Instagram</strong> — sharing tutorials, design work &amp; career advice. My goal: become a <strong>Senior Data Analyst / Analytics Engineer / Agentic AI Engineer</strong> by 2028.</p>
         </div>
         <div class="about-cards">
           <div class="about-card"><div class="ico">📊</div><h4>Business Intelligence</h4><p>Power BI &amp; Tableau dashboards with storytelling.</p></div>
           <div class="about-card"><div class="ico">🐍</div><h4>Python &amp; EDA</h4><p>Pandas, NumPy, scikit-learn, visualizations.</p></div>
           <div class="about-card"><div class="ico">🗃️</div><h4>SQL Mastery</h4><p>5-Star HackerRank — joins, window fns, CTEs.</p></div>
-          <div class="about-card"><div class="ico">🧠</div><h4>AI Integration</h4><p>OpenAI, LLM, Prompt Engineering, AI workflows.</p></div>
+          <div class="about-card"><div class="ico">🤖</div><h4>Agentic AI</h4><p>Autonomous agents, tool-use, RAG &amp; multi-step workflows.</p></div>
           <div class="about-card"><div class="ico">🔥</div><h4>Databricks (Learning)</h4><p>Spark notebooks, Delta Lake, ETL pipelines.</p></div>
           <div class="about-card"><div class="ico">✍</div><h4>Content Creator</h4><p>Medium + YouTube + Instagram + graphic design.</p></div>
         </div>
@@ -1096,13 +1149,13 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
             <li><strong>Power BI + Tableau</strong> — interactive dashboards, KPI tracking.</li>
             <li><strong>Python + EDA + Statistics</strong> — Pandas, NumPy, Matplotlib, Seaborn.</li>
             <li><strong>Databricks &amp; Azure</strong> — cloud-native data pipelines.</li>
-            <li><strong>AI + Prompt Engineering</strong> — LLM-augmented analytics workflows.</li>
+            <li><strong>Agentic AI &amp; Prompt Engineering</strong> — autonomous, LLM-augmented analytics workflows.</li>
             <li><strong>Storytelling &amp; metric design</strong> — translating data for stakeholders.</li>
             <li><strong>Content creator</strong> — sharing knowledge on Medium, YouTube, Instagram.</li>
           </ul>
         </div>
         <div class="cm-row"><span style="font-size:1.05rem;">📧</span><div><div class="lbl">Email</div><a href="mailto:tusharchandel567@gmail.com">tusharchandel567@gmail.com</a></div></div>
-        <div class="cm-row"><span style="font-size:1.05rem;">📱</span><div><div class="lbl">Phone</div><span>+91 9XXXXXXXXX</span></div></div>
+        <div class="cm-row"><span style="font-size:1.05rem;">📱</span><div><div class="lbl">Phone</div><span>Available on request</span></div></div>
         <div class="cm-row"><span style="font-size:1.05rem;">📍</span><div><div class="lbl">Location</div><span>Noida, India · Open to Remote 🌍</span></div></div>
         <div class="cm-row"><span style="font-size:1.05rem;">🎓</span><div><div class="lbl">Education</div><span>B.Tech CSE · 2022 – 2026 · MIT Meerut</span></div></div>
         <div class="cm-row"><span style="font-size:1.05rem;">💼</span><div><div class="lbl">Currently</div><span>Data Analyst Intern @ Raygain Technologies</span></div></div>
@@ -1111,7 +1164,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
   </div>
 </section>
 
-<!-- SKILLS · 3 PHASES -->
+<!-- SKILLS · 4 PHASES -->
 <section id="skills" style="position:relative;">
   <div class="floating-tech">
     <span class="ft-icon">📊</span>
@@ -1122,9 +1175,9 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
   </div>
   <div class="code-rain" id="codeRain"></div>
   <div class="container">
-    <div class="sec-eyebrow reveal">Skills · 3 Phases</div>
+    <div class="sec-eyebrow reveal">Skills · 4 Phases</div>
     <h2 class="sec-title reveal">My data analyst<br><span class="ac">learning journey.</span></h2>
-    <p class="sec-sub reveal d1" style="margin-bottom:26px;">A 3-phase roadmap from core data analyst fundamentals to advanced data engineering &amp; AI engineering. Each phase shows real progress with proficiency levels.</p>
+    <p class="sec-sub reveal d1" style="margin-bottom:26px;">A 4-phase roadmap from core data analyst fundamentals to advanced data engineering &amp; agentic AI engineering. Each phase shows real progress with proficiency levels.</p>
 
     <!-- PHASE 1 — CORE TECHNICAL SKILLS -->
     <div class="phase-block phase-1 reveal d2">
@@ -1319,6 +1372,54 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
       </div>
     </div>
 
+    <!-- PHASE 4 — AGENTIC AI ENGINEERING (NEW) -->
+    <div class="phase-block phase-4 reveal d3">
+      <div class="phase-head">
+        <div class="phase-title">🕹️ Phase 4 — Agentic AI Engineering <span class="phase-badge">EMERGING · 55%</span></div>
+        <div class="phase-progress">// Frontier skills</div>
+      </div>
+      <div class="phase-bar"><div class="phase-bar-fill" data-pct="55"></div></div>
+      <div class="phase-sub">// Building autonomous, tool-using AI systems on top of analytics</div>
+
+      <div class="skill-cat">
+        <div class="skill-cat-title">🤖 Agent Architecture &amp; Orchestration</div>
+        <div class="skill-row">
+          <span class="skill-chip hot">Agentic Workflows</span>
+          <span class="skill-chip hot">ReAct Pattern</span>
+          <span class="skill-chip hot">Tool / Function Calling</span>
+          <span class="skill-chip">Multi-Agent Systems</span>
+          <span class="skill-chip">Planning &amp; Task Decomposition</span>
+          <span class="skill-chip">Memory Management</span>
+          <span class="skill-chip">Agent Evaluation</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-cat-title">🧩 Frameworks &amp; Protocols</div>
+        <div class="skill-row">
+          <span class="skill-chip hot">LangChain</span>
+          <span class="skill-chip hot">LangGraph</span>
+          <span class="skill-chip">CrewAI</span>
+          <span class="skill-chip">AutoGen</span>
+          <span class="skill-chip hot">Model Context Protocol (MCP)</span>
+          <span class="skill-chip">Vector Databases</span>
+          <span class="skill-chip">RAG Pipelines</span>
+        </div>
+      </div>
+
+      <div class="skill-cat">
+        <div class="skill-cat-title">📊 Data-Driven AI Agents</div>
+        <div class="skill-row">
+          <span class="skill-chip hot">NL-to-SQL Agents</span>
+          <span class="skill-chip hot">Autonomous Reporting Agents</span>
+          <span class="skill-chip">Dashboard-Querying Agents</span>
+          <span class="skill-chip">Data-Cleaning Agents</span>
+          <span class="skill-chip">API-Calling Agents</span>
+          <span class="skill-chip">Human-in-the-Loop Design</span>
+        </div>
+      </div>
+    </div>
+
     <!-- SKILL BARS -->
     <div style="margin-top:46px;" class="reveal d4">
       <div class="sec-eyebrow">// Proficiency Levels</div>
@@ -1332,6 +1433,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
         <div class="sbar"><div class="sbar-name">Data Modeling &amp; Metrics</div><div class="sbar-track"><div class="sbar-fill" data-pct="85"></div></div><div class="sbar-pct">85%</div></div>
         <div class="sbar"><div class="sbar-name">Databricks (In Progress)</div><div class="sbar-track"><div class="sbar-fill" data-pct="45"></div></div><div class="sbar-pct">45%</div></div>
         <div class="sbar"><div class="sbar-name">AI / Prompt Engineering</div><div class="sbar-track"><div class="sbar-fill" data-pct="82"></div></div><div class="sbar-pct">82%</div></div>
+        <div class="sbar"><div class="sbar-name">Agentic AI (LangGraph, MCP)</div><div class="sbar-track"><div class="sbar-fill" data-pct="55"></div></div><div class="sbar-pct">55%</div></div>
         <div class="sbar"><div class="sbar-name">Storytelling &amp; Communication</div><div class="sbar-track"><div class="sbar-fill" data-pct="90"></div></div><div class="sbar-pct">90%</div></div>
         <div class="sbar"><div class="sbar-name">Hugging Face</div><div class="sbar-track"><div class="sbar-fill" data-pct="60"></div></div><div class="sbar-pct">60%</div></div>
         <div class="sbar"><div class="sbar-name">Video Editing &amp; Design</div><div class="sbar-track"><div class="sbar-fill" data-pct="82"></div></div><div class="sbar-pct">82%</div></div>
@@ -1345,7 +1447,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
   <div class="container">
     <div class="sec-eyebrow reveal">Experience</div>
     <h2 class="sec-title reveal">Where I've turned<br><span class="ac">data into decisions.</span></h2>
-    <p class="sec-sub reveal d1" style="margin-bottom:32px;">Real data analytics work — building dashboards, shipping insights, learning data engineering, and growing fast.</p>
+    <p class="sec-sub reveal d1" style="margin-bottom:32px;">Real data analytics work — building dashboards, shipping insights, learning data engineering &amp; agentic AI, and growing fast.</p>
 
     <div class="timeline reveal d2">
       <!-- Raygain -->
@@ -1357,7 +1459,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
             <div class="tl-date">Jan 2026 — May 2026</div>
           </div>
           <div class="tl-company">🏢 Raygain Technologies Pvt. Ltd. · Noida, India · 6-Month Internship</div>
-          <p class="tl-desc">Building production-grade Power BI dashboards, designing data models, automating reporting pipelines, and integrating AI/LLM workflows. Working with SQL, Python, Databricks, and OpenAI APIs to deliver business-ready insights.</p>
+          <p class="tl-desc">Building production-grade Power BI dashboards, designing data models, automating reporting pipelines, and integrating AI/LLM &amp; early agentic workflows. Working with SQL, Python, Databricks, and OpenAI APIs to deliver business-ready insights.</p>
           <div class="exp-contrib" style="background:rgba(0,229,192,.05);border:1px solid rgba(0,229,192,.18);border-radius:10px;padding:14px 16px;margin-top:12px;">
             <h4 style="font-size:.8rem;color:var(--neon);font-weight:700;margin-bottom:10px;">🎯 Key Contributions &amp; Impact</h4>
             <ul style="list-style:none;display:flex;flex-direction:column;gap:6px;">
@@ -1365,7 +1467,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
               <li style="font-size:.74rem;color:var(--muted2);padding-left:14px;position:relative;line-height:1.65;"><span style="position:absolute;left:0;color:var(--neon);">▸</span> Wrote <strong>50+ optimized SQL queries</strong> with CTEs &amp; window functions for reporting.</li>
               <li style="font-size:.74rem;color:var(--muted2);padding-left:14px;position:relative;line-height:1.65;"><span style="position:absolute;left:0;color:var(--neon);">▸</span> Automated Excel-to-Power BI pipelines, cutting manual reporting time by <strong>~60%</strong>.</li>
               <li style="font-size:.74rem;color:var(--muted2);padding-left:14px;position:relative;line-height:1.65;"><span style="position:absolute;left:0;color:var(--neon);">▸</span> Built <strong>data models &amp; metric frameworks</strong> (star schema, KPIs, calculated measures).</li>
-              <li style="font-size:.74rem;color:var(--muted2);padding-left:14px;position:relative;line-height:1.65;"><span style="position:absolute;left:0;color:var(--neon);">▸</span> Integrated <strong>OpenAI API</strong> for AI-powered analytics &amp; auto-summarized insights.</li>
+              <li style="font-size:.74rem;color:var(--muted2);padding-left:14px;position:relative;line-height:1.65;"><span style="position:absolute;left:0;color:var(--neon);">▸</span> Prototyped an <strong>agentic reporting assistant</strong> that queries dashboards via natural language.</li>
               <li style="font-size:.74rem;color:var(--muted2);padding-left:14px;position:relative;line-height:1.65;"><span style="position:absolute;left:0;color:var(--neon);">▸</span> Performed EDA on customer datasets using Pandas, NumPy, Matplotlib.</li>
               <li style="font-size:.74rem;color:var(--muted2);padding-left:14px;position:relative;line-height:1.65;"><span style="position:absolute;left:0;color:var(--neon);">▸</span> Used <strong>Databricks notebooks</strong> for ETL &amp; large-dataset transformations.</li>
               <li style="font-size:.74rem;color:var(--muted2);padding-left:14px;position:relative;line-height:1.65;"><span style="position:absolute;left:0;color:var(--neon);">▸</span> Published <strong>Medium articles</strong> on data analysis best practices.</li>
@@ -1375,6 +1477,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
             <span class="tl-tag">SQL</span><span class="tl-tag">Power BI</span>
             <span class="tl-tag">Python</span><span class="tl-tag">DAX</span>
             <span class="tl-tag">Databricks</span><span class="tl-tag">OpenAI</span>
+            <span class="tl-tag">Agentic AI</span>
             <span class="tl-tag">Excel</span><span class="tl-tag">Tableau</span>
           </div>
         </div>
@@ -1433,7 +1536,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
             <div class="tl-date">2024 — 2025</div>
           </div>
           <div class="tl-company">🌐 Personal Portfolio + Medium.com · Remote</div>
-          <p class="tl-desc">Built 16+ end-to-end data projects — sales dashboards, churn prediction, HR analytics, AI-powered insights. Earned HackerRank 5★ in SQL. Wrote 15+ Medium articles on data analytics &amp; AI. Solved 200+ SQL &amp; analytics challenges across platforms.</p>
+          <p class="tl-desc">Built 18+ end-to-end data projects — sales dashboards, churn prediction, HR analytics, AI-powered insights, and early agentic prototypes. Earned HackerRank 5★ in SQL. Wrote 15+ Medium articles on data analytics &amp; AI. Solved 200+ SQL &amp; analytics challenges across platforms.</p>
           <div class="tl-tags">
             <span class="tl-tag">SQL</span><span class="tl-tag">Tableau</span>
             <span class="tl-tag">Python</span><span class="tl-tag">Power BI</span>
@@ -1474,7 +1577,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
   <div class="container">
     <div class="sec-eyebrow reveal">Projects</div>
     <h2 class="sec-title reveal">Data projects that<br><span class="ac">drive decisions.</span></h2>
-    <p class="sec-sub reveal d1" style="margin-bottom:24px;">16+ end-to-end analytics projects — BI dashboards, EDA, ML models, AI-powered insights, and data modeling.</p>
+    <p class="sec-sub reveal d1" style="margin-bottom:24px;">18+ end-to-end analytics projects — BI dashboards, EDA, ML models, AI-powered insights, agentic tools, and data modeling.</p>
 
     <div class="proj-filter reveal d2">
       <button class="pf active" data-cat="all">All</button>
@@ -1482,6 +1585,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
       <button class="pf" data-cat="eda">🔬 EDA</button>
       <button class="pf" data-cat="sql">🗃️ SQL Analytics</button>
       <button class="pf" data-cat="ml">🤖 ML / AI</button>
+      <button class="pf" data-cat="agent">🕹️ Agentic AI</button>
     </div>
 
     <div class="proj-grid reveal d2">
@@ -1762,6 +1866,44 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
           </div>
         </div>
       </div>
+
+      <div class="proj-card feat" data-cat="agent">
+        <div class="proj-body">
+          <span class="proj-badge">⭐ NEW · Agentic AI</span>
+          <h3 class="proj-title">Autonomous Data-Analyst Agent (MCP + LangGraph)</h3>
+          <p class="proj-desc">A tool-using agent that plans, writes &amp; runs SQL, generates charts, and drafts an executive summary — with human-in-the-loop approval before any write action. Built with LangGraph, Model Context Protocol (MCP) tools, and OpenAI function calling on top of a Postgres warehouse.</p>
+          <div class="proj-tags">
+            <span class="ptag pt-p">LangGraph</span><span class="ptag pt-c">MCP</span>
+            <span class="ptag pt-y">SQL</span><span class="ptag pt-g">Python</span>
+            <span class="ptag pt-p">Tool Calling</span>
+          </div>
+          <div class="proj-link-row">
+            <a class="proj-link" href="https://github.com/tusharchandel567" target="_blank">↗ Live Demo</a>
+            <a class="proj-link" href="https://github.com/tusharchandel567" target="_blank">⌥ GitHub</a>
+            <a class="proj-link" href="#" target="_blank">📝 Case Study</a>
+          </div>
+        </div>
+        <div class="feat-vis">
+          <div class="feat-emoji">🕹️</div>
+          <div class="feat-lbl">// LangGraph · MCP · Agents</div>
+        </div>
+      </div>
+
+      <div class="proj-card" data-cat="agent">
+        <div class="proj-visual pv-agent">📥</div>
+        <div class="proj-body">
+          <span class="proj-badge">⭐ NEW · Agentic AI</span>
+          <h3 class="proj-title">Multi-Agent Report Pipeline</h3>
+          <p class="proj-desc">Three cooperating agents — Retriever, Analyst, and Writer — that pull metrics from a data warehouse, cross-check figures, and produce a weekly stakeholder-ready report with zero manual editing.</p>
+          <div class="proj-tags">
+            <span class="ptag pt-p">CrewAI</span><span class="ptag pt-c">RAG</span>
+            <span class="ptag pt-g">Python</span><span class="ptag pt-y">SQL</span>
+          </div>
+          <div class="proj-link-row">
+            <a class="proj-link" href="https://github.com/tusharchandel567" target="_blank">⌥ GitHub</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1963,7 +2105,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
   <div class="container">
     <div class="sec-eyebrow reveal">Languages</div>
     <h2 class="sec-title reveal">Communicating across<br><span class="ac">global markets.</span></h2>
-    <p class="sec-sub reveal d1">Three languages opening doors across India 🇮🇳, the DACH region 🇩🇪, and global English-speaking markets 🇬🇧.</p>
+    <p class="sec-sub reveal d1">Three languages opening doors across India 🇮🇳, the DACH region 🇩🇪, and global English-speaking markets 🇬🇧. Use the 🌐 button in the corner to translate this page's key text.</p>
 
     <div class="lang-grid-big reveal d2">
       <div class="lang-card-big lang-en">
@@ -1996,7 +2138,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
   <div class="container">
     <div class="sec-eyebrow reveal">Open To Work · Worldwide</div>
     <h2 class="sec-title reveal">Ready to work,<br><span class="ac">across the globe.</span></h2>
-    <p class="sec-sub reveal d1" style="margin-bottom:26px;">Actively seeking Data Analyst roles in these countries — on-site, hybrid, or fully remote. Priority on India 🇮🇳 &amp; global remote opportunities 🌍.</p>
+    <p class="sec-sub reveal d1" style="margin-bottom:26px;">Actively seeking Data Analyst &amp; Agentic AI roles in these countries — on-site, hybrid, or fully remote. Priority on India 🇮🇳 &amp; global remote opportunities 🌍.</p>
 
     <div class="ow-banner reveal d2">
       <div class="ow-left">
@@ -2043,6 +2185,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
         <span class="arole">Data Analyst</span>
         <span class="arole">BI Developer</span>
         <span class="arole">Analytics Eng.</span>
+        <span class="arole">Agentic AI Engineer</span>
         <span class="arole">Content Creator</span>
       </div>
     </div>
@@ -2074,6 +2217,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
             <select>
               <option>Data Analyst Job Opportunity</option>
               <option>BI / Analytics Role</option>
+              <option>Agentic AI Project</option>
               <option>Content Collaboration</option>
               <option>Project Collaboration</option>
               <option>Freelance / Consulting</option>
@@ -2094,7 +2238,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:24px 48px;max-width:12
   <div class="container">
     <div class="cta-box reveal">
       <h2>Let's turn your data into<br><span class="gradient-text">decisions that matter.</span></h2>
-      <p>Download my resume or schedule a quick chat — I'm ready to bring SQL, Python, Power BI, Databricks &amp; AI-powered analytics to your team.</p>
+      <p>Download my resume or schedule a quick chat — I'm ready to bring SQL, Python, Power BI, Databricks, Agentic AI &amp; AI-powered analytics to your team.</p>
       <div class="cta-btns">
         <a class="btn-primary" href="https://drive.google.com/file/d/1YnTtZz-gOIpT8y5WOL6htbC6g_OzGs-V/view?usp=sharing" target="_blank">⬇ Download Resume</a>
         <a class="btn-sec" href="mailto:tusharchandel567@gmail.com">📧 Email Me</a>
@@ -2128,7 +2272,8 @@ const phrases = [
   'Data Analyst @ Raygain Technologies',
   'SQL · Power BI · Python · Tableau',
   '5⭐ HackerRank · PL-300 Certified',
-  'Storytelling with Data · 16+ Dashboards',
+  'Storytelling with Data · 18+ Dashboards',
+  'Agentic AI · LangGraph · MCP Tools',
   'AI · Databricks · ETL Pipelines',
   'Content Creator · 15+ Medium Articles',
   'Open to India 🇮🇳 & Remote 🌍',
@@ -2279,7 +2424,7 @@ document.getElementById('contactForm').addEventListener('submit', e => {
 (function(){
   const container = document.getElementById('codeRain');
   if(!container) return;
-  const snippets = ['SELECT * FROM users','AVG(revenue)','df.groupby()','CTE WITH...','VLOOKUP(','SUM(cost)','window fns','pivot_table','DAX: CALC','RANK()','JOIN orders','MERGE INTO','GROUP BY date','filter(>0.05)','REVENUE %','COUNT(DISTINCT','LTV / CAC','RETENTION %'];
+  const snippets = ['SELECT * FROM users','AVG(revenue)','df.groupby()','CTE WITH...','VLOOKUP(','SUM(cost)','window fns','pivot_table','DAX: CALC','RANK()','JOIN orders','MERGE INTO','GROUP BY date','filter(>0.05)','REVENUE %','COUNT(DISTINCT','LTV / CAC','RETENTION %','agent.run()','tool_call()'];
   const colors = ['#F5C518', '#00E5C0', '#FF3CAC', '#7B2FBE', '#0088FF'];
   for(let i = 0; i < 15; i++){
     const d = document.createElement('span');
@@ -2310,7 +2455,7 @@ document.getElementById('contactForm').addEventListener('submit', e => {
     requestAnimationFrame(loop);
   }
   loop();
-  document.querySelectorAll('a, button, .pf, .stab, .faq-item, .proj-card, .cert-card, .country-card, .lang-card-big, .s-card, .ach-card, .svc-card, .tr-item, .testi-card, .obj-card, .pr-card, .creator-card, .cmd-item').forEach(el => {
+  document.querySelectorAll('a, button, .pf, .stab, .faq-item, .proj-card, .cert-card, .country-card, .lang-card-big, .s-card, .ach-card, .svc-card, .tr-item, .testi-card, .obj-card, .pr-card, .creator-card, .cmd-item, .t-opt').forEach(el => {
     el.addEventListener('mouseenter', () => { dot.classList.add('hover'); ring.classList.add('hover'); });
     el.addEventListener('mouseleave', () => { dot.classList.remove('hover'); ring.classList.remove('hover'); });
   });
@@ -2409,6 +2554,91 @@ document.getElementById('contactForm').addEventListener('submit', e => {
       const t = themes[btn.dataset.theme];
       if(t){ Object.keys(t).forEach(k => root.style.setProperty(k, t[k])); showToast('Theme: ' + btn.dataset.theme + ' ✨', '🎨'); }
     });
+  });
+})();
+
+// TRANSLATE WIDGET (client-side dictionary translation for key UI text)
+(function(){
+  const btn = document.getElementById('translateBtn');
+  const menu = document.getElementById('translateMenu');
+  if(!btn || !menu) return;
+
+  btn.addEventListener('click', (e) => { e.stopPropagation(); menu.classList.toggle('show'); });
+  document.addEventListener('click', (e) => { if(!menu.contains(e.target) && e.target !== btn) menu.classList.remove('show'); });
+
+  const dict = {
+    en: {
+      heroTyped: null,
+      navSkills:'Skills', navExperience:'Experience', navProjects:'Projects', navCerts:'Certifications', navOpen:'Open', navContact:'Contact', navStats:'Stats',
+      resumeBtn:'⬇ Download Resume', viewProjectsBtn:'📊 View Projects', skillsBtn:'🛠️ Skills',
+      aboutTitle:'Data that tells<br><span class="ac">compelling stories.</span>',
+      contactTitle:"Let's turn data into<br><span class=\"ac\">decisions together.</span>",
+      sendMsgBtn:'🚀 Send Message'
+    },
+    hi: {
+      navSkills:'कौशल', navExperience:'अनुभव', navProjects:'प्रोजेक्ट्स', navCerts:'सर्टिफिकेशन', navOpen:'उपलब्ध', navContact:'संपर्क', navStats:'आँकड़े',
+      resumeBtn:'⬇ रिज़्यूमे डाउनलोड करें', viewProjectsBtn:'📊 प्रोजेक्ट्स देखें', skillsBtn:'🛠️ कौशल',
+      aboutTitle:'डेटा जो सुनाता है<br><span class="ac">दिलचस्प कहानियाँ।</span>',
+      contactTitle:'आइए डेटा को साथ में<br><span class="ac">फैसलों में बदलें।</span>',
+      sendMsgBtn:'🚀 संदेश भेजें'
+    },
+    de: {
+      navSkills:'Fähigkeiten', navExperience:'Erfahrung', navProjects:'Projekte', navCerts:'Zertifikate', navOpen:'Verfügbar', navContact:'Kontakt', navStats:'Statistik',
+      resumeBtn:'⬇ Lebenslauf herunterladen', viewProjectsBtn:'📊 Projekte ansehen', skillsBtn:'🛠️ Fähigkeiten',
+      aboutTitle:'Daten, die<br><span class="ac">Geschichten erzählen.</span>',
+      contactTitle:'Lass uns Daten gemeinsam<br><span class="ac">in Entscheidungen verwandeln.</span>',
+      sendMsgBtn:'🚀 Nachricht senden'
+    },
+    es: {
+      navSkills:'Habilidades', navExperience:'Experiencia', navProjects:'Proyectos', navCerts:'Certificaciones', navOpen:'Disponible', navContact:'Contacto', navStats:'Estadísticas',
+      resumeBtn:'⬇ Descargar CV', viewProjectsBtn:'📊 Ver Proyectos', skillsBtn:'🛠️ Habilidades',
+      aboutTitle:'Datos que cuentan<br><span class="ac">historias convincentes.</span>',
+      contactTitle:'Convirtamos los datos en<br><span class="ac">decisiones juntos.</span>',
+      sendMsgBtn:'🚀 Enviar Mensaje'
+    },
+    fr: {
+      navSkills:'Compétences', navExperience:'Expérience', navProjects:'Projets', navCerts:'Certifications', navOpen:'Disponible', navContact:'Contact', navStats:'Statistiques',
+      resumeBtn:'⬇ Télécharger le CV', viewProjectsBtn:'📊 Voir les Projets', skillsBtn:'🛠️ Compétences',
+      aboutTitle:'Des données qui racontent<br><span class="ac">des histoires captivantes.</span>',
+      contactTitle:'Transformons les données en<br><span class="ac">décisions ensemble.</span>',
+      sendMsgBtn:'🚀 Envoyer le Message'
+    }
+  };
+
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const aboutH2 = document.querySelector('#about .sec-title');
+  const contactH2 = document.querySelector('#contact .sec-title');
+  const cfSubmit = document.querySelector('.cf-submit');
+  const heroBtnPrimary = document.querySelector('.hero-btns .btn-primary');
+  const heroBtnSecs = document.querySelectorAll('.hero-btns .btn-sec');
+
+  function applyLang(lang){
+    const d = dict[lang] || dict.en;
+    document.documentElement.setAttribute('lang', lang);
+    document.documentElement.setAttribute('data-i18n-active', lang !== 'en' ? 'true' : 'false');
+    if(navLinks.length >= 6){
+      navLinks[0].textContent = d.navStats;
+      navLinks[1].textContent = d.navSkills;
+      navLinks[2].textContent = d.navExperience;
+      navLinks[3].textContent = d.navProjects;
+      navLinks[4].textContent = d.navCerts;
+      navLinks[5].textContent = d.navOpen;
+      navLinks[6] && (navLinks[6].textContent = d.navContact);
+    }
+    if(aboutH2 && d.aboutTitle) aboutH2.innerHTML = d.aboutTitle;
+    if(contactH2 && d.contactTitle) contactH2.innerHTML = d.contactTitle;
+    if(cfSubmit && d.sendMsgBtn) cfSubmit.textContent = d.sendMsgBtn;
+    if(heroBtnPrimary && d.resumeBtn) heroBtnPrimary.textContent = d.resumeBtn;
+    if(heroBtnSecs[0] && d.viewProjectsBtn) heroBtnSecs[0].textContent = d.viewProjectsBtn;
+    if(heroBtnSecs[1] && d.skillsBtn) heroBtnSecs[1].textContent = d.skillsBtn;
+
+    document.querySelectorAll('.t-opt').forEach(o => o.classList.toggle('active', o.dataset.lang === lang));
+    showToast('Translated to ' + (lang==='en'?'English':lang==='hi'?'हिन्दी':lang==='de'?'Deutsch':lang==='es'?'Español':'Français'), '🌐');
+    menu.classList.remove('show');
+  }
+
+  document.querySelectorAll('.t-opt').forEach(opt => {
+    opt.addEventListener('click', () => applyLang(opt.dataset.lang));
   });
 })();
 
