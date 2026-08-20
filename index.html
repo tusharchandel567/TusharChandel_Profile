@@ -10,7 +10,7 @@
 :root{
   --gold:#F5C518;--gold2:#D4A017;--neon:#00E5C0;--pink:#FF3CAC;--purple:#7B2FBE;
   --blue:#3B82F6;--cyan:#06B6D4;--green:#10B981;--red:#EF4444;
-  --de-black:#000;--de-red:#DD0000;--de-gold:#FFCC00;
+  --es-red:#C60B1E;--es-yellow:#FFC400;
   --bg:#050508;--bg2:#08080D;--surface:#0C0C14;--surface2:#121220;
   --border:rgba(245,197,24,.12);--text:#EEEFF5;--muted:#6B6B88;--muted2:#9999B8;
   --font-display:'Syne',sans-serif;--font-body:'Inter',sans-serif;--font-mono:'JetBrains Mono',monospace;
@@ -36,7 +36,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflo
 @keyframes orbit{0%{transform:rotate(0deg) translateX(260px) rotate(0deg)}100%{transform:rotate(360deg) translateX(260px) rotate(-360deg)}}
 @keyframes orbit2{0%{transform:rotate(120deg) translateX(280px) rotate(-120deg)}100%{transform:rotate(480deg) translateX(280px) rotate(-480deg)}}
 @keyframes orbit3{0%{transform:rotate(240deg) translateX(250px) rotate(-240deg)}100%{transform:rotate(600deg) translateX(250px) rotate(-600deg)}}
-@keyframes germanFlag{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+@keyframes spanishFlag{0%{background-position:0% 50%}100%{background-position:100% 50%}}
 @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
 @keyframes bounceIn{0%{transform:scale(0.3);opacity:0}50%{transform:scale(1.05)}70%{transform:scale(0.9)}100%{transform:scale(1);opacity:1}}
 @keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
@@ -196,7 +196,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);overflo
 .fd-5{bottom:40%;left:8%;width:25px;height:25px;background:rgba(59,130,246,.08);border-radius:4px;animation:float1 4s ease-in-out infinite;}
 
 #prog{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--neon),var(--pink),var(--gold));background-size:300% 100%;z-index:9999;width:0%;transition:width .05s;box-shadow:0 0 15px var(--gold);}
-.de-flag-bar{height:3px;background:linear-gradient(90deg,var(--de-black) 33%,var(--de-red) 33% 66%,var(--de-gold) 66%);animation:germanFlag 4s linear infinite;background-size:200% 100%;}
+.es-flag-bar{height:3px;background:linear-gradient(90deg,var(--es-red) 25%,var(--es-yellow) 25% 75%,var(--es-red) 75%);animation:spanishFlag 4s linear infinite;background-size:200% 100%;}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:9000;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 54px;background:rgba(5,5,8,.82);backdrop-filter:blur(24px);border-bottom:1px solid rgba(245,197,24,.12);transition:all .3s cubic-bezier(.23,1,.32,1);}
 nav.solid{background:rgba(5,5,8,.98);border-bottom-color:rgba(245,197,24,.25);box-shadow:0 10px 40px rgba(0,0,0,.6);}
@@ -228,13 +228,13 @@ section{padding:124px 0;position:relative;}
 .hero-grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(245,197,24,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(245,197,24,.03) 1px,transparent 1px);background-size:64px 64px;z-index:0;}
 .hero-inner{position:relative;z-index:2;max-width:1340px;margin:0 auto;padding:0 48px;width:100%;display:grid;grid-template-columns:1.2fr 520px;gap:64px;align-items:center;}
 .hero-badge{display:inline-flex;align-items:center;gap:12px;background:rgba(0,229,192,.08);border:1px solid rgba(0,229,192,.35);border-radius:999px;padding:8px 22px;margin-bottom:20px;font-family:var(--font-mono);font-size:.72rem;color:var(--neon);letter-spacing:.1em;text-transform:uppercase;font-weight:700;animation:fadeUp .55s ease both;box-shadow:0 4px 20px rgba(0,229,192,.25);}
-.de-b2-badge{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(221,0,0,.1),rgba(255,204,0,.1));border:1px solid rgba(255,204,0,.35);border-radius:999px;padding:8px 20px;margin-bottom:22px;font-family:var(--font-mono);font-size:.74rem;color:var(--de-gold);letter-spacing:.06em;font-weight:700;animation:fadeUp .55s .08s ease both;box-shadow:0 4px 20px rgba(255,204,0,.25);transition:all .3s;}
-.de-b2-badge:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,204,0,.35);}
-.de-b2-badge .de-flag-mini{width:30px;height:20px;border-radius:4px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 8px rgba(0,0,0,.3);}
-.de-b2-badge .de-flag-mini span{flex:1;}
-.de-b2-badge .de-flag-mini span:nth-child(1){background:var(--de-black);}
-.de-b2-badge .de-flag-mini span:nth-child(2){background:var(--de-red);}
-.de-b2-badge .de-flag-mini span:nth-child(3){background:var(--de-gold);}
+.es-b2-badge{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(198,11,30,.1),rgba(255,196,0,.1));border:1px solid rgba(255,196,0,.35);border-radius:999px;padding:8px 20px;margin-bottom:22px;font-family:var(--font-mono);font-size:.74rem;color:var(--es-yellow);letter-spacing:.06em;font-weight:700;animation:fadeUp .55s .08s ease both;box-shadow:0 4px 20px rgba(255,196,0,.25);transition:all .3s;}
+.es-b2-badge:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(255,196,0,.35);}
+.es-b2-badge .es-flag-mini{width:30px;height:20px;border-radius:4px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 2px 8px rgba(0,0,0,.3);}
+.es-b2-badge .es-flag-mini span{flex:1;}
+.es-b2-badge .es-flag-mini span:nth-child(1){background:var(--es-red);}
+.es-b2-badge .es-flag-mini span:nth-child(2){background:var(--es-yellow);flex:2;}
+.es-b2-badge .es-flag-mini span:nth-child(3){background:var(--es-red);}
 .live-dot{width:8px;height:8px;border-radius:50%;background:var(--neon);animation:pulse 2s infinite;flex-shrink:0;}
 .hero-name{font-family:var(--font-display);font-weight:900;font-size:clamp(3.2rem,7vw,7.5rem);line-height:.88;letter-spacing:-.03em;color:#fff;margin-bottom:18px;animation:fadeUp .55s .07s ease both;}
 .hero-name .outline{-webkit-text-fill-color:transparent;-webkit-text-stroke:1.8px var(--gold);display:block;text-shadow:0 0 30px rgba(245,197,24,.2);}
@@ -454,18 +454,18 @@ section{padding:124px 0;position:relative;}
 .learn-status.completed{background:rgba(0,229,192,.1);color:var(--neon);border:1px solid rgba(0,229,192,.2);}
 .learn-status.starting{background:rgba(123,47,190,.1);color:var(--purple);border:1px solid rgba(123,47,190,.2);}
 
-/* ═══ FAMOUS GERMAN LANDMARKS ═══ */
-#germany{padding:80px 0;background:var(--bg2);position:relative;overflow:hidden;}
-.german-landmarks{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:32px;}
+/* ═══ FAMOUS SPANISH LANDMARKS ═══ */
+#spain{padding:80px 0;background:var(--bg2);position:relative;overflow:hidden;}
+.es-landmarks{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:32px;}
 .gm-card{background:var(--surface);border:1px solid rgba(255,255,255,.06);border-radius:18px;overflow:hidden;transition:all .35s cubic-bezier(.23,1,.32,1);box-shadow:0 10px 25px rgba(0,0,0,.4);}
-.gm-card:hover{transform:translateY(-8px) scale(1.03);border-color:rgba(255,204,0,.35);box-shadow:0 18px 40px rgba(0,0,0,.65);}
+.gm-card:hover{transform:translateY(-8px) scale(1.03);border-color:rgba(255,196,0,.35);box-shadow:0 18px 40px rgba(0,0,0,.65);}
 .gm-card-img{height:140px;position:relative;overflow:hidden;}
 .gm-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
 .gm-card:hover .gm-card-img img{transform:scale(1.1);}
 .gm-card-body{padding:16px;text-align:center;}
 .gm-card-body h5{font-family:var(--font-display);font-size:.85rem;color:#fff;font-weight:700;margin-bottom:4px;}
 .gm-card-body p{font-size:.68rem;color:var(--muted);line-height:1.5;}
-.gm-card-body .gm-tag{font-size:.6rem;color:var(--de-gold);font-weight:700;font-family:var(--font-mono);margin-top:4px;}
+.gm-card-body .gm-tag{font-size:.6rem;color:var(--es-yellow);font-weight:700;font-family:var(--font-mono);margin-top:4px;}
 
 /* LANGUAGES */
 #languages{background:var(--bg);}
@@ -474,7 +474,7 @@ section{padding:124px 0;position:relative;}
 .lang-card-big:hover{transform:translateY(-11px);box-shadow:0 38px 75px rgba(0,0,0,.85);}
 .lang-card-big::before{content:'';position:absolute;inset:-4px;border-radius:34px;background:linear-gradient(45deg,#ff0000,#ff7700,#ffff00,#00ff88,#00e5c0,#0088ff,#7a00ff,#ff00cc);background-size:400% 400%;animation:rgbBorder 6s linear infinite;filter:blur(8px);z-index:-1;opacity:.88;}
 .lang-en{background:linear-gradient(135deg,#002e50,#004f80);color:#fff;}
-.lang-de{background:linear-gradient(135deg,#1a0000,#2a1800);color:#fff;border:2px solid rgba(255,200,0,.4);}
+.lang-es{background:linear-gradient(135deg,#2a0a08,#3a1200);color:#fff;border:2px solid rgba(255,196,0,.4);}
 .lang-hi{background:linear-gradient(135deg,#1a0800,#001a00);color:#fff;}
 .lang-flag-big{font-size:4.2rem;margin-bottom:26px;display:block;filter:drop-shadow(0 4px 14px rgba(0,0,0,.55));}
 .lang-name{font-family:var(--font-display);font-size:1.9rem;font-weight:800;margin-bottom:10px;}
@@ -482,10 +482,10 @@ section{padding:124px 0;position:relative;}
 .lang-bar-track{height:9px;background:rgba(255,255,255,.22);border-radius:9px;overflow:hidden;margin-bottom:20px;}
 .lang-bar-fill{height:100%;border-radius:9px;}
 .lb-en{background:linear-gradient(90deg,#0088ff,#00e5c0);width:95%;}
-.lb-de{background:linear-gradient(90deg,#ffd700,#ff8800);width:65%;}
+.lb-es{background:linear-gradient(90deg,#ffc400,#c60b1e);width:65%;}
 .lb-hi{background:linear-gradient(90deg,#ff6600,#00aa00);width:100%;}
 .lang-note{font-size:.84rem;margin-top:16px;opacity:.88;font-family:var(--font-mono);line-height:1.7;}
-.lang-de-learning{background:rgba(255,215,0,.16);border:1px solid rgba(255,215,0,.38);border-radius:13px;padding:12px 20px;margin-top:22px;font-size:.8rem;color:#ffd700;font-weight:700;display:inline-block;box-shadow:0 4px 20px rgba(255,215,0,.28);}
+.lang-es-learning{background:rgba(255,196,0,.16);border:1px solid rgba(255,196,0,.38);border-radius:13px;padding:12px 20px;margin-top:22px;font-size:.8rem;color:#ffc400;font-weight:700;display:inline-block;box-shadow:0 4px 20px rgba(255,196,0,.28);}
 
 /* CONTACT */
 #contact{background:var(--bg2);}
@@ -540,7 +540,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
   .proj-card.feat{grid-template-columns:1fr;}
   .proj-card.feat .feat-vis{display:none;}
   .lang-grid-big{grid-template-columns:1fr;}
-  .german-landmarks{grid-template-columns:repeat(3,1fr);}
+  .es-landmarks{grid-template-columns:repeat(3,1fr);}
   .cert-grid{grid-template-columns:repeat(2,1fr);}
   .cc-stats{grid-template-columns:repeat(2,1fr);}
 }
@@ -557,7 +557,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
   .workspace-grid{grid-template-columns:1fr;}
   .github-stats{grid-template-columns:1fr;}
   .learning-grid{grid-template-columns:1fr;}
-  .german-landmarks{grid-template-columns:repeat(2,1fr);}
+  .es-landmarks{grid-template-columns:repeat(2,1fr);}
   .cert-grid{grid-template-columns:1fr;}
   .cert-tabs{justify-content:center;}
   .tech-orbit-container{height:400px;}
@@ -569,7 +569,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
   .proj-body{padding:24px;}
   .proj-visual{height:120px;font-size:3rem;}
   .cta-box{padding:50px 24px;}
-  .de-b2-badge{font-size:.65rem;padding:6px 14px;}
+  .es-b2-badge{font-size:.65rem;padding:6px 14px;}
   .hero-btns{justify-content:center;}
   .hero-socials{justify-content:center;}
   .cc-stats{grid-template-columns:1fr;}
@@ -582,7 +582,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
   .stats-inner{grid-template-columns:repeat(2,1fr);}
   .stat-cell{padding:20px 10px;}
   .stat-n{font-size:2rem;}
-  .german-landmarks{grid-template-columns:1fr;}
+  .es-landmarks{grid-template-columns:1fr;}
   .gm-card-img{height:120px;}
   .hero-roles{justify-content:center;}
   .hrole{font-size:.68rem;padding:5px 12px;}
@@ -619,7 +619,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
     <li><a href="#projects">Projects</a></li>
     <li><a href="#certifications">🎓 Certs</a></li>
     <li><a href="#content-creator">Content</a></li>
-    <li><a href="#germany">🇪 Germany</a></li>
+    <li><a href="#spain">🇪🇸 Spain</a></li>
     <li><a href="#languages">Languages</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -636,7 +636,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
   <div class="morph-blob morph-blob-1"></div>
   <div class="morph-blob morph-blob-2"></div>
   <div class="morph-blob morph-blob-3"></div>
-  <div class="de-flag-bar" style="position:absolute;top:72px;left:0;right:0;z-index:9999;"></div>
+  <div class="es-flag-bar" style="position:absolute;top:72px;left:0;right:0;z-index:9999;"></div>
   <!-- Floating Decorations -->
   <div class="floating-decoration fd-1"></div>
   <div class="floating-decoration fd-2"></div>
@@ -659,9 +659,9 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
   <div class="hero-inner">
     <div>
       <div class="hero-badge"><span class="live-dot"></span>Fresher Software Engineer · Content Creator · Available 2026</div>
-      <div class="de-b2-badge">
-        <div class="de-flag-mini"><span></span><span></span><span></span></div>
-        🇩 German B2 (Goethe-Zertifikat in Progress)
+      <div class="es-b2-badge">
+        <div class="es-flag-mini"><span></span><span></span><span></span></div>
+        🇪🇸 Spanish B2 (DELE Certification in Progress)
       </div>
       <h1 class="hero-name">Tushar<span class="outline">Chandel</span></h1>
       <div class="hero-typed"><span id="typed-out"></span><span class="cursor"></span></div>
@@ -671,14 +671,14 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
         <span class="hrole"> Backend Engineer</span>
         <span class="hrole">☁️ Cloud & DevOps</span>
         <span class="hrole">🤖 AI & Prompt Engineer</span>
-        <span class="hrole">🇩🇪 German B2 Learner</span>
+        <span class="hrole">🇪🇸 Spanish B2 Learner</span>
         <span class="hrole">🎬 Content Creator</span>
       </div>
       <p class="hero-desc">
         Building <strong>scalable web applications</strong> with React, Next.js, Node.js, TypeScript, PostgreSQL, and cloud-native architectures. 
         Creating educational content on YouTube & Instagram to help others learn tech.
         Currently engineering production features at <strong>Raygain Technologies Pvt. Ltd.</strong> · Final-year B.Tech CSE (2022–2026) @ 
-        <strong>Meerut Institute of Technology</strong> · Ready for Germany & global remote opportunities.
+        <strong>Meerut Institute of Technology</strong> · Ready for LatAm/Spain & global remote opportunities.
       </p>
       <div class="hero-btns">
         <a class="btn-primary" href="https://drive.google.com/file/d/1GeawPdciqp_a5Qykdt0Evr4D6UAwHTpr/view?usp=sharing" target="_blank">⬇ Download Resume</a>
@@ -715,7 +715,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
       <div class="profile-info">
         <div class="p-name">Tushar Chandel</div>
         <div class="p-role">Software Engineer · Full Stack Developer · Content Creator</div>
-        <div class="p-loc">📍 Noida, India · Remote & EU Ready</div>
+        <div class="p-loc">📍 Noida, India · Remote & LatAm/Spain Ready</div>
         <div class="profile-stats">
           <div class="ps"><div class="ps-n" data-count="10">3+</div><div class="ps-l">Projects</div></div>
           <div class="ps"><div class="ps-n" data-count="20">4+</div><div class="ps-l">Certifications</div></div>
@@ -723,8 +723,8 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
           <div class="ps"><div class="ps-n" data-count="3">3</div><div class="ps-l">Languages</div></div>
         </div>
         <div style="margin-top:18px;display:flex;align-items:center;justify-content:center;gap:8px;">
-          <span style="font-size:1.4rem;">🇩🇪</span>
-          <span style="font-family:var(--font-mono);font-size:.65rem;color:var(--de-gold);font-weight:700;">Deutsch B2 · Goethe-Zertifikat 2026</span>
+          <span style="font-size:1.4rem;">🇪🇸</span>
+          <span style="font-family:var(--font-mono);font-size:.65rem;color:var(--es-yellow);font-weight:700;">Español B2 · DELE Certification 2026</span>
         </div>
       </div>
     </div>
@@ -758,7 +758,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
         <h2 class="sec-title">Building scalable apps<br><span class="ac">from frontend to backend.</span></h2>
         <div class="about-text">
           <p>I am <strong>Tushar Chandel</strong>, a final-year B.Tech Computer Science student at <strong>Meerut Institute of Technology (2022–2026)</strong>. I specialize in <strong>Full Stack Web Development</strong> — crafting responsive frontend interfaces with React, Next.js, and TypeScript, while building robust backend APIs with Node.js, Express, Python, and cloud-native microservices.</p>
-          <p>I am currently driving production features as a <strong>Software Engineer Intern at Raygain Technologies Pvt. Ltd.</strong>, and actively preparing for global career opportunities by learning <strong>German at B2 level</strong> for DACH market integration. I'm also a passionate content creator on YouTube and Instagram, sharing tech tutorials and educational content to help aspiring developers grow.</p>
+          <p>I am currently driving production features as a <strong>Software Engineer Intern at Raygain Technologies Pvt. Ltd.</strong>, and actively preparing for global career opportunities by learning <strong>Spanish at B2 level</strong> for LatAm and Spain market integration. I'm also a passionate content creator on YouTube and Instagram, sharing tech tutorials and educational content to help aspiring developers grow.</p>
         </div>
         <div class="about-cards">
           <div class="about-card"><div class="ico">️</div><h4>Frontend Mastery</h4><p>React, Next.js, TypeScript, Tailwind, responsive design, performance optimization.</p></div>
@@ -1869,9 +1869,9 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
 
     <div class="learning-grid reveal d1">
       <div class="learn-card">
-        <div class="learn-ico">🇩🇪</div>
-        <h4>German B2 (Deutsch)</h4>
-        <p>Intensive German language study for Goethe-Zertifikat B2. Focusing on technical vocabulary, workplace communication, and DACH market readiness.</p>
+        <div class="learn-ico">🇪🇸</div>
+        <h4>Spanish B2 (Español)</h4>
+        <p>Intensive Spanish language study for the DELE B2 certification. Focusing on technical vocabulary, workplace communication, and LatAm/Spain market readiness.</p>
         <span class="learn-status progress">📖 In Progress</span>
       </div>
       <div class="learn-card">
@@ -1908,85 +1908,85 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
   </div>
 </section>
 
-<!-- ══ FAMOUS GERMAN LANDMARKS ═══ -->
-<section id="germany" style="padding:80px 0;background:var(--bg2);position:relative;overflow:hidden;">
+<!-- ══ FAMOUS SPANISH LANDMARKS ═══ -->
+<section id="spain" style="padding:80px 0;background:var(--bg2);position:relative;overflow:hidden;">
   <div class="rangbirangi-light rb-gold" style="top:10%;right:-150px;"></div>
   <div class="rangbirangi-light rb-neon" style="bottom:10%;left:-100px;"></div>
-  <div class="de-flag-bar" style="position:absolute;top:0;left:0;right:0;z-index:10;"></div>
+  <div class="es-flag-bar" style="position:absolute;top:0;left:0;right:0;z-index:10;"></div>
   <div class="container" style="position:relative;z-index:2;">
-    <div class="sec-eyebrow reveal">🇩 Dreaming of Deutschland</div>
-    <h2 class="sec-title reveal" style="font-size:clamp(2rem,4vw,3.5rem);margin-bottom:12px;">Famous Places in<br><span class="ac" style="background:linear-gradient(135deg,var(--de-red),var(--de-gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Germany 🇪</span></h2>
-    <p class="sec-sub reveal" style="margin-bottom:36px;">The beautiful landmarks I dream of visiting — from the Brandenburg Gate to the fairy-tale Neuschwanstein Castle. <strong>Learning German B2 to build my future in Deutschland.</strong></p>
+    <div class="sec-eyebrow reveal">🇪🇸 Dreaming of España</div>
+    <h2 class="sec-title reveal" style="font-size:clamp(2rem,4vw,3.5rem);margin-bottom:12px;">Famous Places in<br><span class="ac" style="background:linear-gradient(135deg,var(--es-red),var(--es-yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Spain 🇪🇸</span></h2>
+    <p class="sec-sub reveal" style="margin-bottom:36px;">The beautiful landmarks I dream of visiting — from the Sagrada Família to the sun-drenched Alhambra. <strong>Learning Spanish B2 to build my future in Spain and Latin America.</strong></p>
     
-    <div class="german-landmarks reveal d1">
+    <div class="es-landmarks reveal d1">
       <div class="gm-card">
         <div class="gm-card-img">
-          <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=400&q=80" alt="Brandenburg Gate, Berlin" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1583779457094-ab6f77f7bf1a?auto=format&fit=crop&w=400&q=80" alt="Sagrada Familia, Barcelona" loading="lazy"/>
         </div>
         <div class="gm-card-body">
-          <h5>🏛️ Brandenburg Gate</h5>
-          <p>The iconic symbol of Berlin and German unity, standing proudly in the heart of the capital city.</p>
-          <div class="gm-tag"> Berlin</div>
+          <h5>⛪ Sagrada Família</h5>
+          <p>Gaudí's unfinished masterpiece and the icon of Barcelona, blending Gothic and Art Nouveau forms.</p>
+          <div class="gm-tag"> Barcelona</div>
         </div>
       </div>
       <div class="gm-card">
         <div class="gm-card-img">
-          <img src="https://images.unsplash.com/photo-1628624747186-a941c476b7ef?auto=format&fit=crop&w=400&q=80" alt="Neuschwanstein Castle" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1531572753322-ad063cecc140?auto=format&fit=crop&w=400&q=80" alt="Alhambra, Granada" loading="lazy"/>
         </div>
         <div class="gm-card-body">
-          <h5>🏰 Neuschwanstein Castle</h5>
-          <p>The fairy-tale castle perched on the Bavarian Alps — the inspiration for Disney's Sleeping Beauty Castle.</p>
-          <div class="gm-tag">📍 Bavaria</div>
+          <h5>🏰 The Alhambra</h5>
+          <p>A breathtaking Moorish palace and fortress complex overlooking Granada in the Andalusian hills.</p>
+          <div class="gm-tag">📍 Granada</div>
         </div>
       </div>
       <div class="gm-card">
         <div class="gm-card-img">
-          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="Cologne Cathedral" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=400&q=80" alt="Park Güell, Barcelona" loading="lazy"/>
         </div>
         <div class="gm-card-body">
-          <h5>⛪ Cologne Cathedral</h5>
-          <p>A stunning Gothic masterpiece and UNESCO World Heritage Site, towering over the Rhine River.</p>
-          <div class="gm-tag"> Cologne</div>
+          <h5>🌳 Park Güell</h5>
+          <p>Gaudí's colourful mosaic wonderland, a UNESCO World Heritage Site overlooking Barcelona.</p>
+          <div class="gm-tag"> Barcelona</div>
         </div>
       </div>
       <div class="gm-card">
         <div class="gm-card-img">
-          <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=400&q=80" alt="Berlin TV Tower" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1509840841025-9088ba78a826?auto=format&fit=crop&w=400&q=80" alt="Plaza de España, Madrid" loading="lazy"/>
         </div>
         <div class="gm-card-body">
-          <h5>🗼 Berlin TV Tower</h5>
-          <p>The iconic Fernsehturm dominates Berlin's skyline with its distinctive sphere, offering panoramic city views.</p>
-          <div class="gm-tag"> Berlin</div>
+          <h5>🏛️ Plaza de España</h5>
+          <p>A grand square in the heart of Madrid, surrounded by iconic architecture and lively plazas.</p>
+          <div class="gm-tag"> Madrid</div>
         </div>
       </div>
       <div class="gm-card">
         <div class="gm-card-img">
-          <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=400&q=80" alt="Munich Germany" loading="lazy"/>
+          <img src="https://images.unsplash.com/photo-1558642084-fd07fae5282e?auto=format&fit=crop&w=400&q=80" alt="Seville Spain" loading="lazy"/>
         </div>
         <div class="gm-card-body">
-          <h5>🍺 Munich — Oktoberfest</h5>
-          <p>The vibrant Bavarian capital, famous for its world-famous beer festival, rich culture, and tech industry.</p>
-          <div class="gm-tag">📍 Munich</div>
+          <h5>💃 Seville — Flamenco Roots</h5>
+          <p>The passionate Andalusian capital, famous for flamenco, tapas culture, and a thriving tech scene.</p>
+          <div class="gm-tag">📍 Seville</div>
         </div>
       </div>
     </div>
 
-    <!-- German B2 Progress Bar -->
-    <div class="reveal d2" style="margin-top:48px;background:linear-gradient(135deg,rgba(221,0,0,.06),rgba(255,204,0,.06));border:1px solid rgba(255,204,0,.2);border-radius:24px;padding:36px 42px;">
+    <!-- Spanish B2 Progress Bar -->
+    <div class="reveal d2" style="margin-top:48px;background:linear-gradient(135deg,rgba(198,11,30,.06),rgba(255,196,0,.06));border:1px solid rgba(255,196,0,.2);border-radius:24px;padding:36px 42px;">
       <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
-        <div style="font-size:3.5rem;filter:drop-shadow(0 4px 10px rgba(0,0,0,.5));">🇪</div>
+        <div style="font-size:3.5rem;filter:drop-shadow(0 4px 10px rgba(0,0,0,.5));">🇪🇸</div>
         <div style="flex:1;min-width:280px;">
-          <h4 style="font-family:var(--font-display);font-size:1.4rem;color:#fff;font-weight:800;margin-bottom:6px;">🇩🇪 German B2 Learning Journey</h4>
-          <p style="font-size:.88rem;color:var(--muted2);line-height:1.7;margin-bottom:16px;">Actively preparing for the <strong style="color:var(--de-gold);">Goethe-Zertifikat B2</strong> to unlock engineering career opportunities in Germany, Austria, and Switzerland. Building vocabulary, grammar, and conversational skills for technical workplace communication.</p>
+          <h4 style="font-family:var(--font-display);font-size:1.4rem;color:#fff;font-weight:800;margin-bottom:6px;">🇪🇸 Spanish B2 Learning Journey</h4>
+          <p style="font-size:.88rem;color:var(--muted2);line-height:1.7;margin-bottom:16px;">Actively preparing for the <strong style="color:var(--es-yellow);">DELE B2</strong> certification to unlock engineering career opportunities in Spain and across Latin America. Building vocabulary, grammar, and conversational skills for technical workplace communication.</p>
           <div style="display:flex;gap:12px;flex-wrap:wrap;">
-            <span style="background:rgba(221,0,0,.1);border:1px solid rgba(221,0,0,.25);color:var(--de-red);padding:6px 14px;border-radius:999px;font-size:.7rem;font-weight:700;font-family:var(--font-mono);">🏫 Goethe Institut</span>
-            <span style="background:rgba(255,204,0,.1);border:1px solid rgba(255,204,0,.25);color:var(--de-gold);padding:6px 14px;border-radius:999px;font-size:.7rem;font-weight:700;font-family:var(--font-mono);">🎯 Target: B2 by 2026</span>
-            <span style="background:rgba(0,229,192,.1);border:1px solid rgba(0,229,192,.25);color:var(--neon);padding:6px 14px;border-radius:999px;font-size:.7rem;font-weight:700;font-family:var(--font-mono);">🚀 DACH Ready</span>
+            <span style="background:rgba(198,11,30,.1);border:1px solid rgba(198,11,30,.25);color:var(--es-red);padding:6px 14px;border-radius:999px;font-size:.7rem;font-weight:700;font-family:var(--font-mono);">🏫 Instituto Cervantes</span>
+            <span style="background:rgba(255,196,0,.1);border:1px solid rgba(255,196,0,.25);color:var(--es-yellow);padding:6px 14px;border-radius:999px;font-size:.7rem;font-weight:700;font-family:var(--font-mono);">🎯 Target: B2 by 2026</span>
+            <span style="background:rgba(0,229,192,.1);border:1px solid rgba(0,229,192,.25);color:var(--neon);padding:6px 14px;border-radius:999px;font-size:.7rem;font-weight:700;font-family:var(--font-mono);">🚀 LatAm/Spain Ready</span>
           </div>
         </div>
         <div style="text-align:center;">
-          <div style="font-family:var(--font-display);font-size:3.2rem;font-weight:900;color:var(--de-gold);text-shadow:0 4px 15px rgba(255,204,0,.3);">B2</div>
-          <div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-weight:700;font-family:var(--font-mono);">Goethe Target</div>
+          <div style="font-family:var(--font-display);font-size:3.2rem;font-weight:900;color:var(--es-yellow);text-shadow:0 4px 15px rgba(255,196,0,.3);">B2</div>
+          <div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-weight:700;font-family:var(--font-mono);">DELE Target</div>
         </div>
       </div>
     </div>
@@ -2008,13 +2008,13 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
         <div class="lang-bar-track"><div class="lang-bar-fill lb-en"></div></div>
         <p class="lang-note">Seamless working proficiency for code reviews, technical documentation, client presentations, and international team collaboration.</p>
       </div>
-      <div class="lang-card-big lang-de">
-        <span class="lang-flag-big">🇩🇪</span>
-        <h3 class="lang-name">German (Deutsch)</h3>
+      <div class="lang-card-big lang-es">
+        <span class="lang-flag-big">🇪🇸</span>
+        <h3 class="lang-name">Spanish (Español)</h3>
         <div class="lang-level">Upper-Intermediate (B2 in Progress)</div>
-        <div class="lang-bar-track"><div class="lang-bar-fill lb-de"></div></div>
-        <p class="lang-note">Actively advancing to B2 level for DACH market opportunities. Prepared for technical interviews and workplace communication in German engineering environments.</p>
-        <div class="lang-de-learning"> Targeted Goal: Goethe B2 Certification by Mid 2026</div>
+        <div class="lang-bar-track"><div class="lang-bar-fill lb-es"></div></div>
+        <p class="lang-note">Actively advancing to B2 level for Spain and Latin American market opportunities. Prepared for technical interviews and workplace communication in Spanish-speaking engineering environments.</p>
+        <div class="lang-es-learning"> Targeted Goal: DELE B2 Certification by Mid 2026</div>
       </div>
       <div class="lang-card-big lang-hi">
         <span class="lang-flag-big">🇮🇳</span>
@@ -2047,7 +2047,7 @@ footer{border-top:1px solid rgba(255,255,255,.05);padding:46px 48px;max-width:13
         <span class="arole">️ Frontend Developer</span>
         <span class="arole"> Backend Engineer</span>
         <span class="arole">💻 Full Stack Developer</span>
-        <span class="arole">🇪 Werkstudent / EU Remote</span>
+        <span class="arole">🇪🇸 Remote / Spain & LatAm</span>
       </div>
     </div>
 
@@ -2162,7 +2162,7 @@ function animateCanvas(){ctx.clearRect(0,0,width,height);for(let i=0;i<particles
 initParticles();animateCanvas();
 
 // 2. TYPED ANIMATION
-const typedSpan=document.getElementById("typed-out");const words=["Software Engineer","Full Stack Developer","React & Next.js Specialist","Node.js & TypeScript","Cloud & DevOps Engineer","Content Creator 🎬","German B2 Learner 🇩🇪"];let wordIndex=0;let charIndex=0;let isDeleting=false;
+const typedSpan=document.getElementById("typed-out");const words=["Software Engineer","Full Stack Developer","React & Next.js Specialist","Node.js & TypeScript","Cloud & DevOps Engineer","Content Creator 🎬","Spanish B2 Learner 🇪🇸"];let wordIndex=0;let charIndex=0;let isDeleting=false;
 function typeEffect(){const currentWord=words[wordIndex];if(isDeleting){typedSpan.textContent=currentWord.substring(0,charIndex-1);charIndex--;}else{typedSpan.textContent=currentWord.substring(0,charIndex+1);charIndex++;}
 let typeSpeed=isDeleting?35:75;if(!isDeleting&&charIndex===currentWord.length){typeSpeed=2000;isDeleting=true;}else if(isDeleting&&charIndex===0){isDeleting=false;wordIndex=(wordIndex+1)%words.length;typeSpeed=300;}
 setTimeout(typeEffect,typeSpeed);}
